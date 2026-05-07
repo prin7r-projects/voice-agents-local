@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Frontline — Pitch deck</title>
+<style>
+  :root {
+    --cream: #faf6f0;
+    --cream-2: #f2ebdf;
+    --ink: #1f2526;
+    --copper: #c2462a;
+    --copper-2: #9f3520;
+    --slate: #5c6266;
+    --sage: #6f8869;
+  }
+  @import url("https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,800&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap");
+  * { box-sizing: border-box; }
+  html, body {
+    margin: 0;
+    background: #2a2f30;
+    color: var(--ink);
+    font-family: "Inter", system-ui, sans-serif;
+    line-height: 1.55;
+  }
+  body {
+    padding: 48px 16px;
+  }
+  .deck {
+    max-width: 1080px;
+    margin: 0 auto;
+  }
+  .slide {
+    background: var(--cream);
+    border: 1px solid rgba(31, 37, 38, 0.18);
+    border-radius: 14px;
+    padding: 56px 64px;
+    margin-bottom: 32px;
+    min-height: 540px;
+    position: relative;
+    background-image: radial-gradient(rgba(31, 37, 38, 0.022) 1px, transparent 1px);
+    background-size: 4px 4px;
+  }
+  .slide-num {
+    position: absolute;
+    top: 24px;
+    right: 32px;
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 11px;
+    letter-spacing: 1.6px;
+    text-transform: uppercase;
+    color: var(--slate);
+  }
+  .label {
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 11px;
+    letter-spacing: 1.6px;
+    text-transform: uppercase;
+    color: var(--slate);
+    margin-bottom: 16px;
+  }
+  h1, h2, h3 {
+    font-family: "Fraunces", Georgia, serif;
+    font-variation-settings: "opsz" 96;
+    font-weight: 600;
+    letter-spacing: -0.014em;
+    line-height: 1.06;
+    margin: 0;
+  }
+  h1.title { font-size: 76px; }
+  h1.headline { font-size: 56px; }
+  h2 { font-size: 40px; }
+  h3 { font-size: 24px; margin-top: 28px; }
+  p { font-size: 17px; max-width: 720px; }
+  ul { margin: 16px 0; padding-left: 0; list-style: none; }
+  li {
+    margin: 0 0 12px 0;
+    padding-left: 22px;
+    position: relative;
+    font-size: 16.5px;
+  }
+  li::before {
+    content: "·";
+    position: absolute;
+    left: 0;
+    top: 0;
+    color: var(--copper);
+    font-family: "IBM Plex Mono", monospace;
+    font-weight: 600;
+  }
+  .copper { color: var(--copper); }
+  .ink-on-cream { color: var(--ink); }
+  .quote {
+    font-family: "Fraunces", Georgia, serif;
+    font-size: 22px;
+    font-style: italic;
+    line-height: 1.4;
+    margin: 24px 0;
+    max-width: 760px;
+    border-left: 3px solid var(--copper);
+    padding-left: 18px;
+    color: var(--ink);
+  }
+  table {
+    border-collapse: collapse;
+    margin-top: 24px;
+    font-size: 15px;
+  }
+  th, td {
+    border-bottom: 1px solid rgba(31, 37, 38, 0.15);
+    padding: 10px 14px;
+    text-align: left;
+  }
+  th {
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 11px;
+    letter-spacing: 1.6px;
+    text-transform: uppercase;
+    color: var(--slate);
+    border-bottom: 1.5px solid var(--copper);
+  }
+  .scarlet-rule {
+    display: inline-block;
+    width: 56px;
+    height: 2px;
+    background: var(--copper);
+    margin-top: 18px;
+  }
+  .grid-2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px 36px;
+    max-width: 880px;
+    margin-top: 28px;
+  }
+  .footer-mark {
+    margin-top: 32px;
+    padding-top: 14px;
+    border-top: 1px solid rgba(31, 37, 38, 0.12);
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 11px;
+    letter-spacing: 1.6px;
+    text-transform: uppercase;
+    color: var(--slate);
+  }
+  .url {
+    color: var(--copper);
+    font-weight: 600;
+  }
+  .stat {
+    font-family: "Fraunces", Georgia, serif;
+    font-weight: 600;
+    font-size: 56px;
+    line-height: 1;
+    color: var(--ink);
+  }
+  .stat-cap {
+    font-size: 14px;
+    color: var(--slate);
+    margin-top: 8px;
+    max-width: 240px;
+  }
+</style>
+</head>
+<body>
+<main class="deck">
+
+  <!-- 1 -->
+  <section class="slide">
+    <div class="slide-num">01 / 10</div>
+    <div class="label">Frontline · 2026</div>
+    <h1 class="title">Frontline.</h1>
+    <h2 style="margin-top:18px;font-weight:400;font-size:34px;">
+      Your voice while you're cutting hair.
+    </h2>
+    <span class="scarlet-rule"></span>
+    <p style="margin-top:32px;">
+      A done-for-you voice agent for local businesses — dentists, plumbers, salons,
+      restaurants, clinics, contractors. We pick up the phone so the owner doesn't have to.
+    </p>
+    <div class="footer-mark"><span class="url">voice-agents-local.prin7r.com</span> · desk@prin7r.com</div>
+  </section>
+
+  <!-- 2 -->
+  <section class="slide">
+    <div class="slide-num">02 / 10</div>
+    <div class="label">The problem</div>
+    <h1 class="headline">The phone is the front door — and it rings while the owner is at the counter.</h1>
+    <span class="scarlet-rule"></span>
+    <ul style="margin-top:28px;">
+      <li><strong>76%</strong> of voicemails go unanswered in our wedge industries.</li>
+      <li>Owners pay <strong>$200–$2,000/month</strong> for an answering service that takes a message and forwards everything to the owner's mobile.</li>
+      <li>Or hire a part-time front desk who quits in 6 months.</li>
+      <li>"Press 1 for English" auto-attendants are the worst answer the industry currently offers.</li>
+    </ul>
+    <div class="quote">"My chair time used to get eaten by the phone."<br/>— Marisol Tavárez, Tavárez Cuts, Lawrence MA</div>
+  </section>
+
+  <!-- 3 -->
+  <section class="slide">
+    <div class="slide-num">03 / 10</div>
+    <div class="label">The product</div>
+    <h1 class="headline">A real-sounding voice on a real phone number, hand-tuned per industry.</h1>
+    <span class="scarlet-rule"></span>
+    <ul style="margin-top:28px;">
+      <li><strong>Picks up.</strong> Every call. 24/7 if the shop wants 24/7.</li>
+      <li><strong>Books</strong> straight into your existing software (Square, Booksy, Vagaro, Dentrix, Mindbody, Toast, OpenTable).</li>
+      <li><strong>Texts</strong> you anything urgent the same minute.</li>
+      <li><strong>Digests</strong> the day for you at 6pm. One screen, not 12 transcripts.</li>
+      <li><strong>Six tuned scripts</strong>: dental, plumbing, salon, restaurant, clinic, contractor.</li>
+      <li><strong>Live in 72 hours.</strong> Not 12 weeks.</li>
+    </ul>
+    <p style="margin-top:24px;color:var(--slate);font-style:italic;">The product is the outcome — a Saturday off, bookings instead of voicemails. We sell a result, not a dashboard.</p>
+  </section>
+
+  <!-- 4 -->
+  <section class="slide">
+    <div class="slide-num">04 / 10</div>
+    <div class="label">Why now</div>
+    <h1 class="headline">2026 is the first year all three primitives are reliable at the same time.</h1>
+    <span class="scarlet-rule"></span>
+    <div class="grid-2" style="margin-top:36px;">
+      <div>
+        <div class="stat copper">Voice</div>
+        <p class="stat-cap">ElevenLabs / Vapi / Bland in 2025–2026 cleared the bar where callers don't ask if they're talking to a person.</p>
+      </div>
+      <div>
+        <div class="stat copper">LLM tools</div>
+        <p class="stat-cap">Function-calling against scheduling APIs is a solved problem. The agent can actually book.</p>
+      </div>
+      <div>
+        <div class="stat copper">Telephony</div>
+        <p class="stat-cap">Twilio number provisioning + SMS escalation is commodity. Margins exist.</p>
+      </div>
+      <div>
+        <div class="stat copper">Trust</div>
+        <p class="stat-cap">Owners stopped trusting "AI" as a category but will trust an outcome they can hear. Lead with the call, not the feature list.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5 -->
+  <section class="slide">
+    <div class="slide-num">05 / 10</div>
+    <div class="label">Who it's for</div>
+    <h1 class="headline">Owner-led, single-location, 2–25 employees.</h1>
+    <span class="scarlet-rule"></span>
+    <table>
+      <tr><th>ICP</th><th>Detail</th></tr>
+      <tr><td>Industries</td><td>Dental, plumbing, salon, restaurant, clinic, contractor</td></tr>
+      <tr><td>Headcount</td><td>2–25</td></tr>
+      <tr><td>Locations</td><td>1–3</td></tr>
+      <tr><td>Daily calls</td><td>15–80</td></tr>
+      <tr><td>Buyer</td><td>Owner. Single signature.</td></tr>
+    </table>
+    <p style="margin-top:28px;">
+      <strong>Anchor personas:</strong> Marisol (38, salon, MA) and Dale (51, plumber, TN). <em>Not for:</em> DSO chains, franchises, outbound-sales teams.
+    </p>
+  </section>
+
+  <!-- 6 -->
+  <section class="slide">
+    <div class="slide-num">06 / 10</div>
+    <div class="label">Pricing</div>
+    <h1 class="headline">Monthly base + cents per minute. All on the homepage.</h1>
+    <span class="scarlet-rule"></span>
+    <table style="margin-top:24px;">
+      <tr><th>Tier</th><th>Base / mo</th><th>Per minute</th><th>Included</th></tr>
+      <tr><td>After-Hours</td><td>$140</td><td>26¢</td><td>80 min</td></tr>
+      <tr><td><strong>Starter</strong></td><td><strong>$290</strong></td><td><strong>22¢</strong></td><td><strong>250 min</strong></td></tr>
+      <tr><td>Growth</td><td>$590</td><td>18¢</td><td>600 min</td></tr>
+      <tr><td>Concierge</td><td>Custom</td><td>Custom</td><td>Custom</td></tr>
+    </table>
+    <p style="margin-top:24px;">
+      First month upfront via NOWPayments USDT/USDC stablecoin (clears in 15 min). No setup fee. Cancel any month. <strong>~$224 contribution margin per shop per month at Starter tier.</strong>
+    </p>
+  </section>
+
+  <!-- 7 -->
+  <section class="slide">
+    <div class="slide-num">07 / 10</div>
+    <div class="label">Why we win</div>
+    <h1 class="headline">Per-industry tuning is the moat. The script library is the product.</h1>
+    <span class="scarlet-rule"></span>
+    <table style="margin-top:24px;">
+      <tr><th>Compared to</th><th>They are</th><th>We are</th></tr>
+      <tr><td>Live answering services (LASA, AnswerNet)</td><td>Per-minute message-takers</td><td>Industry-tuned bookers</td></tr>
+      <tr><td>Generic AI receptionists (Numa, Goodcall)</td><td>Wizard-configured templates</td><td>Hand-tuned in 72 hours</td></tr>
+      <tr><td>Voicemail / Google Voice</td><td>A funnel dropping 76% of callers</td><td>A line that picks up</td></tr>
+    </table>
+    <p style="margin-top:24px;color:var(--slate);font-style:italic;">Defensibility: every new shop's quirks fold into the next shop's intake. Year 2 we have 200 shops worth of scripts no one else can replicate without 18 months of customer time.</p>
+  </section>
+
+  <!-- 8 -->
+  <section class="slide">
+    <div class="slide-num">08 / 10</div>
+    <div class="label">Distribution</div>
+    <h1 class="headline">Channel mix engineered for owner trust gradient.</h1>
+    <span class="scarlet-rule"></span>
+    <table style="margin-top:24px;">
+      <tr><th>Channel</th><th>Expected share at 90 days</th></tr>
+      <tr><td>Owner-to-owner referral</td><td>40%</td></tr>
+      <tr><td>Industry-specific paid SEM</td><td>25%</td></tr>
+      <tr><td>Instagram + TikTok call clips</td><td>12%</td></tr>
+      <tr><td>Local Services Ads / agency partnership</td><td>10%</td></tr>
+      <tr><td>Industry podcast sponsorship</td><td>8%</td></tr>
+      <tr><td>Trade-show / conference</td><td>5%</td></tr>
+    </table>
+    <p style="margin-top:24px;color:var(--slate);font-style:italic;">No TechCrunch launches. No LinkedIn outbound. No Hacker News. Wrong audience.</p>
+  </section>
+
+  <!-- 9 -->
+  <section class="slide">
+    <div class="slide-num">09 / 10</div>
+    <div class="label">Plan · 90 days</div>
+    <h1 class="headline">30 paying shops. $11k MRR. Wave 3 dashboard kicks off day 90.</h1>
+    <span class="scarlet-rule"></span>
+    <table style="margin-top:24px;">
+      <tr><th>Phase</th><th>What lands</th></tr>
+      <tr><td>Weeks 1–2</td><td>Pilot trio: 1 salon, 1 plumber, 1 dental — agents live, weekly clips begin</td></tr>
+      <tr><td>Weeks 3–6</td><td>Per-industry blog posts; first SEM; agency-partnership outreach</td></tr>
+      <tr><td>Weeks 7–10</td><td>Agency partner signs; referral loop opens</td></tr>
+      <tr><td>Weeks 11–13</td><td>Growth-tier upsells; day-90 recap; Wave 3 SaaS dashboard begins</td></tr>
+    </table>
+    <p style="margin-top:24px;">Wave 3 (months 4–12): scale to 200 customers; ship <code>apps/app/</code> open-saas dashboard for owner self-serve.</p>
+  </section>
+
+  <!-- 10 -->
+  <section class="slide">
+    <div class="slide-num">10 / 10</div>
+    <div class="label">Ask</div>
+    <h1 class="headline">Three ways a partner can move us forward.</h1>
+    <span class="scarlet-rule"></span>
+    <ul style="margin-top:28px;">
+      <li><strong>Owner introductions</strong> — salons, plumbers, dental practices, restaurants, clinics, contractors in US Sun Belt or secondary-city markets.</li>
+      <li><strong>Agency partnerships</strong> — recruiting 3–5 Local Services Ads agencies on the 10% rev-share co-sell.</li>
+      <li><strong>Industry podcast hosts</strong> who run their own shop and would do a mid-roll read with their own example.</li>
+    </ul>
+    <div class="quote" style="margin-top:36px;">"We pick up. You stay focused."</div>
+    <div class="footer-mark">desk@prin7r.com · <span class="url">voice-agents-local.prin7r.com</span></div>
+  </section>
+
+</main>
+</body>
+</html>

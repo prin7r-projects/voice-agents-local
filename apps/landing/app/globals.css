@@ -1,0 +1,235 @@
+@import url("https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,800&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --cream: #faf6f0;
+  --cream-2: #f2ebdf;
+  --ink: #1f2526;
+  --copper: #c2462a;
+  --copper-2: #9f3520;
+  --slate: #5c6266;
+  --sage: #6f8869;
+  --sky: #3a6e8f;
+}
+
+* {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+html,
+body {
+  background: var(--cream);
+  color: var(--ink);
+  font-family: "Inter", system-ui, -apple-system, sans-serif;
+  font-size: 16px;
+  line-height: 1.55;
+}
+
+body {
+  /* Subtle paper grain — a couple of percent of warmth, nothing else. */
+  background-image: radial-gradient(rgba(31, 37, 38, 0.022) 1px, transparent 1px);
+  background-size: 4px 4px;
+}
+
+::selection {
+  background: var(--copper);
+  color: var(--cream);
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: border-color 220ms cubic-bezier(0.2, 0.6, 0.2, 1);
+}
+
+a:hover {
+  border-bottom-color: currentColor;
+}
+
+a.copper:hover {
+  border-bottom-color: var(--copper);
+}
+
+.font-display {
+  font-family: "Fraunces", Georgia, serif;
+  font-variation-settings: "opsz" 96;
+  letter-spacing: -0.014em;
+}
+
+.font-mono {
+  font-family: "IBM Plex Mono", ui-monospace, monospace;
+}
+
+/* Square-edged primary button. */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 22px;
+  font-family: "Inter", sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  border: 1px solid var(--ink);
+  background: var(--ink);
+  color: var(--cream);
+  border-radius: 10px;
+  cursor: pointer;
+  transition:
+    background 220ms cubic-bezier(0.2, 0.6, 0.2, 1),
+    color 220ms cubic-bezier(0.2, 0.6, 0.2, 1),
+    transform 220ms cubic-bezier(0.2, 0.6, 0.2, 1);
+}
+
+.btn:hover {
+  background: var(--copper-2);
+  border-color: var(--copper-2);
+  color: var(--cream);
+}
+
+.btn:focus-visible {
+  outline: 2px solid var(--copper);
+  outline-offset: 2px;
+}
+
+.btn-copper {
+  background: var(--copper);
+  border-color: var(--copper);
+  color: var(--cream);
+}
+
+.btn-copper:hover {
+  background: var(--copper-2);
+  border-color: var(--copper-2);
+}
+
+.btn-ghost {
+  background: transparent;
+  color: var(--ink);
+}
+
+.btn-ghost:hover {
+  background: var(--ink);
+  color: var(--cream);
+}
+
+.label {
+  font-family: "IBM Plex Mono", ui-monospace, monospace;
+  font-size: 11px;
+  letter-spacing: 1.6px;
+  text-transform: uppercase;
+  color: var(--slate);
+}
+
+.thin-rule {
+  border-top: 1px solid rgba(31, 37, 38, 0.12);
+}
+
+/* Receiver card — used to render the "ringing phone" mockups. */
+.receiver-card {
+  background: #fffaf2;
+  border: 1px solid rgba(31, 37, 38, 0.18);
+  border-radius: 14px;
+  box-shadow: 6px 6px 0 0 rgba(31, 37, 38, 0.08);
+}
+
+/* Pricing card hover. */
+.tier-card {
+  transition:
+    transform 240ms cubic-bezier(0.2, 0.6, 0.2, 1),
+    box-shadow 240ms cubic-bezier(0.2, 0.6, 0.2, 1);
+}
+
+.tier-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 0 0 rgba(31, 37, 38, 0.05);
+}
+
+/* Soft pulse for the "live" dot on the hero. */
+@keyframes pulse-sage {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.45;
+  }
+}
+
+.pulse-dot {
+  animation: pulse-sage 1.6s ease-in-out infinite;
+}
+
+@keyframes type-reveal {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.reveal {
+  animation: type-reveal 380ms cubic-bezier(0.2, 0.6, 0.2, 1) both;
+}
+
+.reveal-2 {
+  animation: type-reveal 380ms 120ms cubic-bezier(0.2, 0.6, 0.2, 1) both;
+}
+
+.reveal-3 {
+  animation: type-reveal 380ms 240ms cubic-bezier(0.2, 0.6, 0.2, 1) both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal,
+  .reveal-2,
+  .reveal-3 {
+    animation: none;
+  }
+  .pulse-dot {
+    animation: none;
+    opacity: 1;
+  }
+}
+
+/* Quoted-call transcript styling. */
+.transcript-line-customer {
+  color: var(--ink);
+}
+
+.transcript-line-frontline {
+  color: var(--copper);
+}
+
+.transcript-line-meta {
+  color: var(--slate);
+  font-size: 12px;
+  font-family: "IBM Plex Mono", ui-monospace, monospace;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+/* Soft alternating section bands. */
+.section-band {
+  background: var(--cream-2);
+}
+
+/* Industry-card icon framing. */
+.industry-icon {
+  width: 44px;
+  height: 44px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(31, 37, 38, 0.18);
+  border-radius: 10px;
+  background: var(--cream);
+}
