@@ -1,6 +1,6 @@
-# DESIGN.md — Frontline
+# DESIGN.md — Rollcall
 
-> Canonical design + style guide for `voice-agents-local` (brand: **Frontline**).
+> Canonical design + style guide for `voice-agents-local` (brand: **Rollcall**).
 > Owned by Chief of Design. Kept in sync with `apps/landing/` — any landing-page change updates this file in the same commit.
 
 The visual identity is sourced from [`docs/01-brand-identity.md`](docs/01-brand-identity.md). This document is the implementation-facing translation of that identity into tokens, components, layout rules, and verification artifacts.
@@ -9,7 +9,7 @@ The visual identity is sourced from [`docs/01-brand-identity.md`](docs/01-brand-
 
 ## 1. Product and audience
 
-**Product** — Frontline is a done-for-you voice agent for local businesses (dentists, plumbers, salons, restaurants, clinics, contractors). A real-sounding voice on a real phone number that picks up every call, books the appointment in the shop's existing scheduling software (Square, Booksy, Vagaro, Dentrix, Mindbody, Toast, OpenTable, etc.), texts the owner anything urgent, and hands them an end-of-day digest. Per-shop tuning happens in a 30-minute intake call; the agent is live within 72 hours.
+**Product** — Rollcall is a done-for-you voice agent for local businesses (dentists, plumbers, salons, restaurants, clinics, contractors). A real-sounding voice on a real phone number that picks up every call, books the appointment in the shop's existing scheduling software (Square, Booksy, Vagaro, Dentrix, Mindbody, Toast, OpenTable, etc.), texts the owner anything urgent, and hands them an end-of-day digest. Per-shop tuning happens in a 30-minute intake call; the agent is live within 72 hours.
 
 **Audience** —
 - **Marisol, the salon owner**: 38, owner-operator of a 4-chair salon (Tavárez Cuts) in Lawrence MA. Skeptical of "AI." Will trust a recommendation from another owner more than any landing page. Lives in Booksy, Instagram, the salon-owner Facebook group.
@@ -101,7 +101,7 @@ All components are local (in `apps/landing/app/page.tsx` and `globals.css`) unti
 
 | Component | Where defined | Notes |
 |-----------|---------------|-------|
-| `Logo` | `page.tsx::Logo` | Fraunces 22px "Frontline" wordmark next to a 36px ink-rounded-square holding a copper rotary-receiver SVG. The receiver is the brand mark; works at 24px (favicon) and 64px (footer). |
+| `Logo` | `page.tsx::Logo` | Fraunces 22px "Rollcall" wordmark next to a 36px ink-rounded-square holding a copper rotary-receiver SVG. The receiver is the brand mark; works at 24px (favicon) and 64px (footer). |
 | `.btn` (primary, ink) | `globals.css` | Square-but-warmly-rounded (10px), ink fill, 14×22px padding. Hover swaps to copper-2 fill. Focus-visible: 2px copper outline at +2px offset. |
 | `.btn-copper` | `globals.css` | Solid copper. Used as the prominent CTA throughout — hero, masthead, closing. |
 | `.btn-ghost` | `globals.css` | Transparent, ink border, ink text on cream → cream text on ink hover. Secondary CTA. |
@@ -110,13 +110,13 @@ All components are local (in `apps/landing/app/page.tsx` and `globals.css`) unti
 | `industry-icon` | `globals.css` + `page.tsx` icons | 44×44 ink-bordered cream square holding a 22px line-stroke SVG (dental tooth, plumbing pipe, salon scissors, restaurant cutlery, clinic medical-cross, contractor wrench). |
 | `SectionHeader` | `page.tsx` | Mono `§ NN` kicker + slate hairline + mono eyebrow → 34–48px Fraunces title → 9px copper accent rule. |
 | `tier-card` | `globals.css` + `page.tsx` Pricing | Cream surface, 1px ink-15 border (highlighted tier swaps to copper border + ring). Header label, optional badge, 40–44px Fraunces price, slate cadence, mono per-minute strapline, bullet list, full-width CTA at bottom. Hover lifts 2px and shows soft `0 6px 0 0` shadow. |
-| `transcript-line-*` | `globals.css` + `page.tsx` SampleCall | `transcript-line-customer` (ink), `transcript-line-frontline` (copper), `transcript-line-meta` (slate mono caps). |
+| `transcript-line-*` | `globals.css` + `page.tsx` SampleCall | `transcript-line-customer` (ink), `transcript-line-agent` (copper), `transcript-line-meta` (slate mono caps). |
 | `pulse-dot` | `globals.css` | 2.5px sage dot, 1.6s ease-in-out 1↔.45 opacity loop. The only persistent animation. Disabled under `prefers-reduced-motion`. |
 | `label` | `globals.css` | IBM Plex Mono 11px, 1.6px tracking, uppercase, slate. |
 | `thin-rule` | `globals.css` | 1px hairline at `rgba(31,37,38,.12)`. Transcript footnotes and what-we-won't-do row separators. |
 | `section-band` | `globals.css` | Cream-2 background — used on Industries, Sample-call, Anti-features sections to make the page breathe. |
 
-**Accessibility for each.** All buttons inherit native focus ring AND have an explicit `:focus-visible { outline: 2px solid var(--copper) }`. The `Logo` carries `aria-label="Frontline"`. Industry SVGs are `aria-hidden`; the `Arrow` glyph is `aria-hidden`. Nav anchors are real `<a>` elements via `next/link`. Keyboard tab order: hero CTA → secondary CTA → nav → industry cards → pricing CTAs → footer links.
+**Accessibility for each.** All buttons inherit native focus ring AND have an explicit `:focus-visible { outline: 2px solid var(--copper) }`. The `Logo` carries `aria-label="Rollcall"`. Industry SVGs are `aria-hidden`; the `Arrow` glyph is `aria-hidden`. Nav anchors are real `<a>` elements via `next/link`. Keyboard tab order: hero CTA → secondary CTA → nav → industry cards → pricing CTAs → footer links.
 
 ## 9. Landing page structure
 
@@ -165,7 +165,7 @@ The landing intentionally ships **no raster imagery** — the visual identity is
 - **WCAG target** — AA. AAA where the type scale already gets us there (display ink-on-cream).
 - **Color contrast** — verified for every documented foreground/background pair in section 4.
 - **Keyboard** — Tab cycles cleanly through hero CTA → secondary CTA → header nav → industry cards (none are buttons, so reading order = visual order) → pricing CTAs → FAQ links → closing CTA → footer links. All focus states are visible (explicit copper outline).
-- **Alt text** — `Logo` carries `aria-label="Frontline"`; all industry/Arrow/receiver SVGs are `aria-hidden`. Decorative inline glyphs use `aria-hidden`. There are no `<img>` elements; if added, decorative use `alt=""`, content uses descriptive alt.
+- **Alt text** — `Logo` carries `aria-label="Rollcall"`; all industry/Arrow/receiver SVGs are `aria-hidden`. Decorative inline glyphs use `aria-hidden`. There are no `<img>` elements; if added, decorative use `alt=""`, content uses descriptive alt.
 - **Semantics** — `header > nav`, `main`, `section[id]` for in-page anchors (`#industries`, `#how`, `#sample`, `#pricing`, `#contact`, `#top`), `article` around the sample-call transcript, `figure` + `blockquote` + `figcaption` around quote chips, `footer`. Real `<a>` (via `next/link`), real `<h1>` / `<h2>` / `<h3>` hierarchy with no skipped levels (1 H1, 6 H2 for sections, H3 for sub-headings inside steps / industries / FAQ items).
 - **Real copy** — no `Lorem ipsum`, no `TODO` strings; every quoted figure (11.6 hrs / 97% / 76%) is from our sales-call audit; every shop name (Tavárez Cuts, Holcomb Plumbing, Greenpoint Family Dental) is referenced consistently across the docs and the landing.
 - **Production checks** — `curl -sI https://voice-agents-local.prin7r.com` returns HTTP/2 200 with valid Let's Encrypt cert; static HTML contains the hero copy without client-side hydration.
@@ -181,9 +181,9 @@ Captured from the live deploy at `https://voice-agents-local.prin7r.com` via Pla
 | Landing — desktop | 1440 × 900 (`fullPage`) | [`docs/screenshots/landing-desktop.png`](docs/screenshots/landing-desktop.png) |
 | Landing — mobile | 390 × 844 (`fullPage`) | [`docs/screenshots/landing-mobile.png`](docs/screenshots/landing-mobile.png) |
 
-![Frontline landing — desktop, 1440×900](docs/screenshots/landing-desktop.png)
+![Rollcall landing — desktop, 1440×900](docs/screenshots/landing-desktop.png)
 
-![Frontline landing — mobile, 390×844](docs/screenshots/landing-mobile.png)
+![Rollcall landing — mobile, 390×844](docs/screenshots/landing-mobile.png)
 
 Capture script: `scripts/capture-landing-screenshots.mjs` (Playwright Chromium, `device_scale_factor: 2`, `wait_until: networkidle`). Re-run after any landing-affecting change.
 
@@ -206,3 +206,4 @@ Capture script: `scripts/capture-landing-screenshots.mjs` (Playwright Chromium, 
 |------|--------|----------|
 | 2026-05-08 | Initial Wave 2 build (v2 bar) — `apps/landing/` shipped (11 sections); brand identity locked at `docs/01-brand-identity.md`; DESIGN.md created with all 15 sections; NOWPayments hosted-invoice flow live (`/api/checkout/nowpayments` + IPN webhook); 10 strategy docs + pitch-deck.html shipped; `apps/app/` stub with README explaining open-saas Wave 3+ plan; desktop + mobile screenshots captured; container deployed to storage-contabo via Traefik. | Wave 2 build agent |
 | 2026-05-08 | **Wave 2 redesign — Soft Structuralism path.** Cream/beige canvas (`#FAF6F0`) replaced with milky-white canvas `#FBFAF7` lit by a low-opacity radial copper/sage mesh; `cream` and `cream2` tokens deprecated and renamed `canvas` / `canvas2`. **Inter banned, swapped to Cabinet Grotesk** (Fontshare, with Plus Jakarta Sans fallback); IBM Plex Mono demoted to fallback in favor of JetBrains Mono. Display Fraunces upgraded to use the full `opsz` (9–144) and `SOFT` (30–50) variable axes. Buttons converted to fully-rounded pills with the **button-in-button** trailing arrow per soft-skill; old square 10px buttons retired. **Six-tile industries grid recut as an asymmetric bento** (12-col grid: 6/3/3/3/6/3) with macro `gap-10` whitespace and double-bezel (Doppelrand) card architecture. Hero quotes restacked as a single asymmetric column with subtle `±2–3px` offsets per soft-skill's Z-Axis Cascade. Trust-band kept as the page's single dark moment but recut with copper + sage radial mesh against `--ink #15171A`. Verbatim 9-turn dental transcript preserved word-for-word but re-typeset in Fraunces italic at `opsz=18` inside a double-bezel card. Sticker-shadow `6px 6px 0 0 rgba(...)` retired in favor of a tinted diffusion shadow. All `border-b` section dividers replaced with hairline `--line` rules at 0.08 alpha. `min-h-screen` replaced with `min-h-[100dvh]` to fix iOS Safari viewport jumping. Motion eased onto `cubic-bezier(0.32, 0.72, 0, 1)` springs throughout. Live URL re-deployed to `https://voice-agents-local.prin7r.com` (200, NOWPayments invoice flow re-verified live). Desktop + mobile screenshots captured at the same `prin7r-screenshots` Playwright install used for batch 1. | Wave 2 redesign agent |
+| 2026-05-08 | **Wave 2 rebrand — Frontline → Rollcall.** `wave2-name-research.md` flagged Frontline FAIL — `getfrontline.ai` is a live AI-voice-agent platform doing the same thing (direct same-class collision). Rebranded to **Rollcall** (primary; `getrollcall.com` / `rollcall.io` / `rollcall.ai` available; the only `rollcall.com` collision is CQ Roll Call — a 1955 political-news publication, different category, unlikely to overlap on SERP for "voice agents for local business"). Slug `voice-agents-local` and live URL `voice-agents-local.prin7r.com` unchanged — only the brand name swapped. Replacement scope: Logo wordmark in `apps/landing/app/page.tsx`, `aria-label`s, `og:title` / `siteName` / metadata, hero deck copy, industries copy, footer attribution, `mailto:` `subject=` strings, `/api/checkout/nowpayments` + `/api/webhooks/nowpayments` log-tag prefixes (`[FRONTLINE_*]` → `[ROLLCALL_*]`), NOWPayments plan `name` + `description` fields, `orderId` prefix (`frontline_*` → `rollcall_*`), `package.json#name` (`frontline-landing` → `rollcall-landing`), all 9 docs (`docs/01–10`, plus `pitch-deck.html` `<title>` and slide masthead), `Dockerfile.landing` header comment, `scripts/capture-landing-screenshots.mjs` log tag. CSS class `.transcript-line-frontline` renamed to `.transcript-line-agent` (semantic, brand-neutral) and the discriminated-union literal `who: "frontline" \| "caller"` swapped to `who: "agent" \| "caller"` so no residual `frontline` token is left in the source. The Soft-Structuralism visual identity (canvas/copper/sage tokens, Fraunces+Cabinet+JetBrains font stack, 6-tile bento, 9-turn dental transcript word-for-word, owner's-covenant manifesto) is preserved verbatim. Re-deployed to storage-contabo, screenshots re-captured at the same Playwright install, NOWPayments live invoice on `{"plan":"starter"}` re-verified ($290). | Wave 2 rebrand agent |

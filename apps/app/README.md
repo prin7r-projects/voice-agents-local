@@ -1,10 +1,10 @@
-# `apps/app/` — Frontline SaaS surface (deferred)
+# `apps/app/` — Rollcall SaaS surface (deferred)
 
 This folder is intentionally empty for Wave 2.
 
 ## What lives here eventually
 
-A fork of [`wasp-lang/open-saas`](https://github.com/wasp-lang/open-saas) tuned to Frontline's product:
+A fork of [`wasp-lang/open-saas`](https://github.com/wasp-lang/open-saas) tuned to Rollcall's product:
 
 - **Owner login** (Google OAuth + magic-link). Each owner sees only their shop's calls.
 - **Calls inbox** — the day's transcripts, transcripts on demand, redacted audio.
@@ -38,7 +38,7 @@ apps/app/
 │   │   │   ├── CallsPage.tsx
 │   │   │   ├── VoiceSettingsPage.tsx
 │   │   │   └── BillingPage.tsx
-│   │   └── components/      # ShadCN re-themed to Frontline tokens (DESIGN.md §4–6)
+│   │   └── components/      # ShadCN re-themed to Rollcall tokens (DESIGN.md §4–6)
 │   ├── server/
 │   │   ├── webhooks/
 │   │   │   ├── nowpayments.ts   # IPN → orders table + agent provisioner trigger
@@ -60,7 +60,7 @@ apps/app/
 ## DESIGN.md commitment
 
 When the SaaS surface lands it will use **shadcn/ui primitives**, re-themed
-to the Frontline tokens in the root `DESIGN.md`. No paid component
+to the Rollcall tokens in the root `DESIGN.md`. No paid component
 libraries; no marketing-page expressiveness inside the dashboard. The
 expressive aesthetic stays in `apps/landing/`; the dashboard stays
 restrained per the Prin7r Component Library Baseline (ShadCN-first).

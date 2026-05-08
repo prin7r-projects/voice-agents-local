@@ -1,6 +1,6 @@
 # 04 — Pain Points
 
-> Local-business owners have been sold "answering services" for forty years. The pain points are well-mapped. What changes in 2026 is what the alternatives now look like — and why each of them keeps failing for the shops we're building Frontline for.
+> Local-business owners have been sold "answering services" for forty years. The pain points are well-mapped. What changes in 2026 is what the alternatives now look like — and why each of them keeps failing for the shops we're building Rollcall for.
 
 ## 1. The owner's actual pain (root cause)
 
@@ -81,7 +81,7 @@ We win the customer if and only if all four are true:
 3. **The owner hears one summary at end-of-day, not 12 transcripts.** The unit of attention is the day, not the call.
 4. **Pricing is legible at a glance.** Owner has to be able to do the math in their head: monthly base + cents per minute. No tiers locked behind sales calls.
 
-Frontline is built around hitting all four. That is the entire product thesis.
+Rollcall is built around hitting all four. That is the entire product thesis.
 
 ## 4. Why now (2026)
 

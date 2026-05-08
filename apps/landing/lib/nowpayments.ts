@@ -1,7 +1,7 @@
 /**
- * [FRONTLINE_NOWPAYMENTS] Server-side helpers for the NOWPayments hosted invoice.
+ * [ROLLCALL_NOWPAYMENTS] Server-side helpers for the NOWPayments hosted invoice.
  *
- * Frontline ships three self-serve tiers visible on the Pricing section. All
+ * Rollcall ships three self-serve tiers visible on the Pricing section. All
  * three flow through `POST /v1/invoice` (hosted page → customer pays in
  * USDT/USDC, with a fiat on-ramp partner where the NOWPayments account has
  * card enabled). Concierge tier is intentionally sales-led and never hits
@@ -38,27 +38,27 @@ export type Plan = {
 export const PLANS: Record<PlanId, Plan> = {
   starter: {
     id: "starter",
-    name: "Frontline — Starter (first month)",
+    name: "Rollcall — Starter (first month)",
     priceUsd: 290,
     cadence: "$290 / month + 22¢ per minute after 250 included minutes",
     description:
-      "Frontline Starter — single trade-line voice agent, 250 included minutes per month, scheduling + after-hours coverage. First month upfront in stablecoin.",
+      "Rollcall Starter — single trade-line voice agent, 250 included minutes per month, scheduling + after-hours coverage. First month upfront in stablecoin.",
   },
   growth: {
     id: "growth",
-    name: "Frontline — Growth (first month)",
+    name: "Rollcall — Growth (first month)",
     priceUsd: 590,
     cadence: "$590 / month + 18¢ per minute after 600 included minutes",
     description:
-      "Frontline Growth — up to three locations, 600 included minutes, intake form sync, daily call digest, three voice templates per location.",
+      "Rollcall Growth — up to three locations, 600 included minutes, intake form sync, daily call digest, three voice templates per location.",
   },
   afterhours: {
     id: "afterhours",
-    name: "Frontline — After-Hours (first month)",
+    name: "Rollcall — After-Hours (first month)",
     priceUsd: 140,
     cadence: "$140 / month + 26¢ per minute outside business hours",
     description:
-      "Frontline After-Hours — evening + weekend coverage only, calls roll over to your voicemail during business hours, 80 included after-hours minutes.",
+      "Rollcall After-Hours — evening + weekend coverage only, calls roll over to your voicemail during business hours, 80 included after-hours minutes.",
   },
 };
 
@@ -95,7 +95,7 @@ export async function createNowpaymentsInvoice(
     ? "https://api-sandbox.nowpayments.io"
     : "https://api.nowpayments.io";
 
-  const orderId = `frontline_${input.plan.id}_${Date.now()}_${Math.random().toString(36).slice(2, 8)}`;
+  const orderId = `rollcall_${input.plan.id}_${Date.now()}_${Math.random().toString(36).slice(2, 8)}`;
 
   const body = {
     price_amount: input.plan.priceUsd,

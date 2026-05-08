@@ -20,10 +20,10 @@ export default function HomePage() {
 }
 
 const DESK_MAILTO =
-  "mailto:desk@prin7r.com?subject=Frontline%20-%20get%20a%20line%20live%20for%20my%20shop&body=Business%20name%3A%0A%0AIndustry%20(dentist%2C%20plumber%2C%20salon%2C%20restaurant%2C%20clinic%2C%20contractor)%3A%0A%0ABusiness%20phone%20number%3A%0A%0AHours%20you%20want%20covered%3A%0A%0AOne-line%20description%20of%20your%20typical%20customer%20question%3A%0A";
+  "mailto:desk@prin7r.com?subject=Rollcall%20-%20get%20a%20line%20live%20for%20my%20shop&body=Business%20name%3A%0A%0AIndustry%20(dentist%2C%20plumber%2C%20salon%2C%20restaurant%2C%20clinic%2C%20contractor)%3A%0A%0ABusiness%20phone%20number%3A%0A%0AHours%20you%20want%20covered%3A%0A%0AOne-line%20description%20of%20your%20typical%20customer%20question%3A%0A";
 
 const CONCIERGE_MAILTO =
-  "mailto:desk@prin7r.com?subject=Frontline%20Concierge%20-%20multi-location%20setup&body=Number%20of%20locations%3A%0A%0AAverage%20daily%20call%20volume%20across%20locations%3A%0A%0AScheduling%20software%20you%20use%20today%20(Square%2C%20Booksy%2C%20Vagaro%2C%20Dentrix%2C%20Mindbody%2C%20etc.)%3A%0A%0AWho%20handles%20the%20phone%20today%3A%0A";
+  "mailto:desk@prin7r.com?subject=Rollcall%20Concierge%20-%20multi-location%20setup&body=Number%20of%20locations%3A%0A%0AAverage%20daily%20call%20volume%20across%20locations%3A%0A%0AScheduling%20software%20you%20use%20today%20(Square%2C%20Booksy%2C%20Vagaro%2C%20Dentrix%2C%20Mindbody%2C%20etc.)%3A%0A%0AWho%20handles%20the%20phone%20today%3A%0A";
 
 /* ---------------- Header ---------------- */
 
@@ -31,7 +31,7 @@ function Header() {
   return (
     <header className="sticky top-0 z-40 backdrop-blur-xl bg-canvas/72 section-rule">
       <div className="mx-auto max-w-prose px-6 md:px-10 py-4 md:py-5 flex items-center justify-between gap-6">
-        <Link href="#top" className="flex items-center gap-3" aria-label="Frontline home">
+        <Link href="#top" className="flex items-center gap-3" aria-label="Rollcall home">
           <Logo />
         </Link>
         <nav aria-label="Primary" className="hidden md:flex items-center gap-8 text-[13.5px] text-ink/70">
@@ -63,7 +63,7 @@ function Header() {
 
 function Logo() {
   return (
-    <span className="inline-flex items-center gap-3" aria-label="Frontline">
+    <span className="inline-flex items-center gap-3" aria-label="Rollcall">
       {/* Receiver mark — refined: copper-tinted hairline cell, no solid ink block. */}
       <span
         aria-hidden
@@ -83,7 +83,7 @@ function Logo() {
         </svg>
       </span>
       <span className="font-display text-[22px] font-semibold tracking-tight leading-none">
-        Frontline
+        Rollcall
       </span>
     </span>
   );
@@ -134,7 +134,7 @@ function Hero() {
               className="reveal-2 mt-10 max-w-[600px] text-[18px] md:text-[19px] leading-[1.65] text-ink/75"
               style={{ textWrap: "pretty" } as React.CSSProperties}
             >
-              Frontline runs the front-of-house phone for local businesses —
+              Rollcall runs the front-of-house phone for local businesses —
               dentists, plumbers, salons, restaurants, clinics, contractors. A
               calm, real-sounding voice answers every call, books the
               appointment in your calendar, and hands you a clean note at the
@@ -320,7 +320,7 @@ function IndustriesWeServe() {
           className="mt-7 max-w-2xl text-ink/75 text-[16.5px] md:text-[17.5px] leading-[1.65]"
           style={{ textWrap: "pretty" } as React.CSSProperties}
         >
-          We are not a generic AI receptionist. Frontline is six tuned scripts
+          We are not a generic AI receptionist. Rollcall is six tuned scripts
           — one per industry — that we adapt to your shop&rsquo;s hours,
           prices, quirks, and the real things your customers actually ask for.
           The examples below are pulled, lightly edited, from real calls we
@@ -453,9 +453,9 @@ function HowItWorks() {
 
 function SampleCallTranscript() {
   // Verbatim 9-turn transcript — preserved exactly, only typography changes.
-  const turns: { who: "frontline" | "caller"; line: string }[] = [
+  const turns: { who: "agent" | "caller"; line: string }[] = [
     {
-      who: "frontline",
+      who: "agent",
       line:
         "Greenpoint Family Dental, this is the answering desk. How can I help you tonight?",
     },
@@ -465,7 +465,7 @@ function SampleCallTranscript() {
         "Hi — uh, sorry to call late. I think I cracked a filling on a popcorn kernel. It's not bleeding, but it's sharp when I drink something cold.",
     },
     {
-      who: "frontline",
+      who: "agent",
       line:
         "That sounds uncomfortable. We can absolutely get you in. Can I have your first and last name so I can pull your chart?",
     },
@@ -474,13 +474,13 @@ function SampleCallTranscript() {
       line: "[REDACTED], yeah, I was in for a cleaning in February.",
     },
     {
-      who: "frontline",
+      who: "agent",
       line:
         "Got it. I see Dr. Petrosyan does your work. She has a 9:40 tomorrow, or a 12:15 if you'd rather come during lunch. The 9:40 is a little better for cracked-filling work because she keeps her morning blocks for repairs.",
     },
     { who: "caller", line: "9:40 is fine. I'll move my call." },
     {
-      who: "frontline",
+      who: "agent",
       line:
         "Booked. I'll send you a confirmation text in a minute. One thing — Dr. Petrosyan asks new repair patients to skip cold drinks the morning of. Coffee is fine, just at room temp. Anything else I can do for you tonight?",
     },
@@ -489,7 +489,7 @@ function SampleCallTranscript() {
       line: "That's it. Thanks — this was easier than I thought.",
     },
     {
-      who: "frontline",
+      who: "agent",
       line: "You're welcome. Take it easy on the popcorn.",
     },
   ];
@@ -521,7 +521,7 @@ function SampleCallTranscript() {
             <div className="mt-9 flex flex-col gap-3.5 text-[13px]">
               <div className="flex items-center gap-3">
                 <span aria-hidden className="w-2 h-2 rounded-full bg-copper" />
-                <span className="text-ink/85">Frontline — the agent</span>
+                <span className="text-ink/85">Rollcall — the agent</span>
               </div>
               <div className="flex items-center gap-3">
                 <span aria-hidden className="w-2 h-2 rounded-full bg-ink" />
@@ -545,12 +545,12 @@ function SampleCallTranscript() {
                   {turns.map((t, idx) => (
                     <li key={idx} className="grid grid-cols-[80px_1fr] gap-4">
                       <span className="label pt-[3px]">
-                        {t.who === "frontline" ? "Frontline" : "Caller"}
+                        {t.who === "agent" ? "Rollcall" : "Caller"}
                       </span>
                       <p
                         className={
-                          t.who === "frontline"
-                            ? "transcript-line-frontline"
+                          t.who === "agent"
+                            ? "transcript-line-agent"
                             : "transcript-line-customer"
                         }
                         style={{ textWrap: "pretty" } as React.CSSProperties}
@@ -1011,7 +1011,7 @@ function Footer() {
         <div>
           <Logo />
           <p className="mt-6 text-slate text-[13px] max-w-xs leading-[1.65]">
-            Frontline is operated by Prin7r. Voice infrastructure on Twilio +
+            Rollcall is operated by Prin7r. Voice infrastructure on Twilio +
             Vapi/Bland under the hood. Built and serviced from Brooklyn,
             Lawrence, and Tbilisi.
           </p>

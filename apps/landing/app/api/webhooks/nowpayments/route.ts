@@ -1,5 +1,5 @@
 /**
- * [FRONTLINE_NOWPAYMENTS_IPN] POST /api/webhooks/nowpayments
+ * [ROLLCALL_NOWPAYMENTS_IPN] POST /api/webhooks/nowpayments
  *
  * NOWPayments delivers payment status updates here. Body is a JSON payload
  * with payment metadata; the `x-nowpayments-sig` header carries the
@@ -59,13 +59,13 @@ export async function POST(request: Request) {
   const orderId =
     stringValue(payload.order_id) ??
     stringValue(payload.payment_id) ??
-    "frontline_unknown";
+    "rollcall_unknown";
 
   // Stub — when apps/app ships this becomes a DB write + provisioner call.
   // We intentionally do NOT log the full payload (contains pay_address-style
   // identifiers). The deploy host's journalctl preserves this audit line.
   console.log(
-    `[FRONTLINE_NOWPAYMENTS_IPN] verified=true order_id=${orderId} status=${status} paid=${paid}`,
+    `[ROLLCALL_NOWPAYMENTS_IPN] verified=true order_id=${orderId} status=${status} paid=${paid}`,
   );
 
   return NextResponse.json({
