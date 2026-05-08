@@ -18,6 +18,8 @@ The visual identity is sourced from [`docs/01-brand-identity.md`](docs/01-brand-
 
 The landing speaks owner-to-owner: warm, plainspoken, and concrete. Voice mirrors the product itself — calm, real, dependable.
 
+**Visual register (Wave 2 redesign, 2026-05-08).** The brand essence — *warm, plainspoken, reliable* — is preserved, but the page has been recut to read as **expensive without being twee**. The target reference points are now Square Reader's pricing pages, Linear's brand site, and the Apple-tier discipline of an editorial-grade local trade publication: milky-white canvas instead of cream, hairline architecture instead of sticker-shadow stickers, large variable-axis Fraunces display set against a Cabinet Grotesk body, copper and sage applied as *punctuation* rather than as backgrounds. Inter is removed.
+
 ## 2. Visual positioning
 
 A small-business main-street aesthetic, not an enterprise-SaaS aesthetic.
@@ -39,38 +41,43 @@ A small-business main-street aesthetic, not an enterprise-SaaS aesthetic.
 
 ## 4. Color tokens
 
-Single source of truth: `apps/landing/tailwind.config.ts` and `apps/landing/app/globals.css`. Eight tokens; intentionally not a SaaS dashboard palette.
+Single source of truth: `apps/landing/tailwind.config.ts` and `apps/landing/app/globals.css`.
+**Wave 2 redesign (2026-05-08): cream/beige is removed.** The canvas is **milky white** lit by a 4–5% radial copper/sage mesh; warm copper and sage are kept as *accents only*. Eight tokens.
 
 | Role | Token | Hex | CSS var | Used for |
 |------|-------|-----|---------|----------|
-| Surface (default) | `cream` | `#FAF6F0` | `--cream` | Page background, card surfaces |
-| Surface (band) | `cream2` | `#F2EBDF` | `--cream-2` | Alternating section bands (Industries, Sample, Anti-features) |
-| Ink | `ink` | `#1F2526` | `--ink` | All body copy, primary buttons, hairlines, trust-band background |
-| Accent (warm copper) | `copper` | `#C2462A` | `--copper` | CTAs, accents, footnote rules, hover states |
-| Accent (deep, hover) | `copper2` | `#9F3520` | `--copper-2` | Button hover state |
-| Muted | `slate` | `#5C6266` | `--slate` | Captions, metadata, mono labels |
-| Trust (sage) | `sage` | `#6F8869` | `--sage` | Live-status pulse dot, subtle success cues |
-| Calm (sky) | `sky` | `#3A6E8F` | `--sky` | One quote-chip variant, sparing use |
+| Surface (default) | `canvas` | `#FBFAF7` | `--canvas` | Page background, card surfaces |
+| Surface (band) | `canvas2` | `#F4F2EC` | `--canvas-2` | Alternating section bands (Industries, Sample, Owner's covenant) |
+| Ink (display) | `ink` | `#15171A` | `--ink` | Display type, primary buttons, hairlines anchor |
+| Ink (body) | `ink2` | `#2A2D31` | `--ink-2` | Eyebrow text, near-black body cases |
+| Accent (warm copper) | `copper` | `#B84423` | `--copper` | CTAs, accents, footnote rules, hover states |
+| Accent (deep, hover) | `copper2` | `#92341B` | `--copper-2` | Button hover state |
+| Muted | `slate` | `#5A6066` | `--slate` | Captions, metadata, mono labels |
+| Trust (sage) | `sage` | `#5F7758` | `--sage` | Live-status pulse dot, restrained success cues |
+| Hairline (default) | `line` | `rgba(21,23,26,0.08)` | `--line` | Card borders, dividers, section rules |
+| Hairline (strong) | `line2` | `rgba(21,23,26,0.14)` | `--line-2` | Stronger separators where extra contrast is needed |
 
-**Contrast.** Body and large-display foreground/background combinations meet WCAG AA. Verified pairs: ink-on-cream 13.4:1 (AAA), slate-on-cream 4.6:1 (AA), copper-on-cream 5.0:1 (AA), cream-on-ink 13.4:1 (AAA), sage-on-cream 3.7:1 (AA large only — sage is reserved for the 10px pulse-dot status indicator + decorative use, not body text).
+**Contrast.** Body and large-display foreground/background combinations meet WCAG AA. Verified pairs: ink-on-canvas ≈14.6:1 (AAA), ink2-on-canvas ≈11.2:1 (AAA), slate-on-canvas ≈4.7:1 (AA), copper-on-canvas ≈5.0:1 (AA), canvas-on-ink ≈14.6:1 (AAA), sage-on-canvas ≈3.6:1 (AA large only — sage is reserved for the 6px pulse-dot status indicator + decorative use, not body text).
 
-**Forbidden combinations.** Sage on cream2 below 14px. Copper on sage. Slate on cream2 below 14px. The eight tokens are designed so every intentional pair is documented above; if a new pair arises, add it here first.
+**Forbidden combinations.** Sage on canvas2 below 14px. Copper on sage. Slate on canvas2 below 14px. Beige and cream tokens are forbidden under the Wave 2 redesign — if more warmth is needed, reach for a copper/sage radial mesh at ≤5% alpha rather than tinting the canvas itself.
 
 ## 5. Typography
 
-Three families. No fourth font.
+Three families. No fourth font. **Inter is banned** under the Wave 2 redesign.
 
 | Role | Family | Weights | Used at | Reason |
 |------|--------|---------|---------|--------|
-| Display | **Fraunces** (variable, opsz 9–144) | 400, 600, 800 | Hero 44–80px, sections 34–48px, callout 18–22px | Warm optical-size serif tuned for both display and body. Reads as "shop sign" / "book cover," not "dashboard." |
-| Body | **Inter** | 400, 500, 600, 700 | Body 15–17px, UI 14px, labels 11px | Workhorse sans with strong small-size legibility — owners read the page on a phone in low light. |
-| Mono | **IBM Plex Mono** | 400, 500 | Labels in 10–11px caps, transcript metadata, kicker tags | Reads as machine output for transcripts and metadata; never carries body. |
+| Display | **Fraunces** (variable, opsz 9–144, SOFT axis) | 500, 600, 700, 800 | Hero 48–96px, sections 36–60px, transcript body 16–17px italic | Variable-axis serif that lets the display fall through `opsz=144` for hero, `opsz=18` for italic transcript copy, with the `SOFT` axis pushed to 30–50 on italic accents for a more editorial feel. The "expensive book cover" register without the twee. |
+| Body / UI | **Cabinet Grotesk** (with **Plus Jakarta Sans** fallback) | 400, 500, 700, 800 | Body 15–17px, UI 13–14px, hero copy 18–19px | High-contrast premium grotesk loaded from Fontshare; replaces Inter. Carries character without screaming. Plus Jakarta Sans is loaded as a self-hosted-grade Google Fonts fallback in case Fontshare is blocked at the network edge. |
+| Mono | **JetBrains Mono** (with **IBM Plex Mono** fallback) | 400, 500 | Labels in 10–11px caps, transcript metadata, kicker tags, tabular numbers | Tabular numerics on by default (`font-variant-numeric: tabular-nums`). Replaces IBM Plex Mono as the primary mono — Plex stays as fallback. |
 
-Loaded from Google Fonts in `globals.css` with `display=swap` and the `opsz` axis enabled.
+Loaded in `globals.css` from Google Fonts (Fraunces, Plus Jakarta Sans, JetBrains Mono) and Fontshare (Cabinet Grotesk) with `display=swap`.
 
-**Type scale (display).** 17 / 22 / 28 / 34 / 40 / 44 / 48 / 56 / 72 / 80 px.
-**Body scale.** 11 / 12 / 13 / 14 / 15 / 17 / 19 / 22 px.
-**Letter-spacing.** Display tightens by `-0.014em`; mono labels open to `1.6px` for caps.
+**Type scale (display).** 17 / 19 / 22 / 24 / 28 / 36 / 40 / 48 / 56 / 60 / 64 / 72 / 80 / 96 px.
+**Body scale.** 10 / 11 / 12 / 13 / 14 / 15 / 16 / 17 / 19 px.
+**Letter-spacing.** Display tightens to `-0.022em` (default) and `-0.028em` for hero. Eyebrow / mono labels open to `0.18em`.
+**Variable-axis usage.** Hero uses `font-variation-settings: 'opsz' 144`; italic accents push `'SOFT' 50` for warmth. Transcript copy is set in Fraunces italic at `'opsz' 18` to make the verbatim 9-turn dental transcript read as an elevated editorial pull-quote rather than a debug log.
+**Text-wrap.** All large display headings use `text-wrap: balance`; body copy uses `text-wrap: pretty` to remove orphans.
 
 ## 6. Spacing, radius, shadows, and borders
 
@@ -198,3 +205,4 @@ Capture script: `scripts/capture-landing-screenshots.mjs` (Playwright Chromium, 
 | Date | Change | Reviewer |
 |------|--------|----------|
 | 2026-05-08 | Initial Wave 2 build (v2 bar) — `apps/landing/` shipped (11 sections); brand identity locked at `docs/01-brand-identity.md`; DESIGN.md created with all 15 sections; NOWPayments hosted-invoice flow live (`/api/checkout/nowpayments` + IPN webhook); 10 strategy docs + pitch-deck.html shipped; `apps/app/` stub with README explaining open-saas Wave 3+ plan; desktop + mobile screenshots captured; container deployed to storage-contabo via Traefik. | Wave 2 build agent |
+| 2026-05-08 | **Wave 2 redesign — Soft Structuralism path.** Cream/beige canvas (`#FAF6F0`) replaced with milky-white canvas `#FBFAF7` lit by a low-opacity radial copper/sage mesh; `cream` and `cream2` tokens deprecated and renamed `canvas` / `canvas2`. **Inter banned, swapped to Cabinet Grotesk** (Fontshare, with Plus Jakarta Sans fallback); IBM Plex Mono demoted to fallback in favor of JetBrains Mono. Display Fraunces upgraded to use the full `opsz` (9–144) and `SOFT` (30–50) variable axes. Buttons converted to fully-rounded pills with the **button-in-button** trailing arrow per soft-skill; old square 10px buttons retired. **Six-tile industries grid recut as an asymmetric bento** (12-col grid: 6/3/3/3/6/3) with macro `gap-10` whitespace and double-bezel (Doppelrand) card architecture. Hero quotes restacked as a single asymmetric column with subtle `±2–3px` offsets per soft-skill's Z-Axis Cascade. Trust-band kept as the page's single dark moment but recut with copper + sage radial mesh against `--ink #15171A`. Verbatim 9-turn dental transcript preserved word-for-word but re-typeset in Fraunces italic at `opsz=18` inside a double-bezel card. Sticker-shadow `6px 6px 0 0 rgba(...)` retired in favor of a tinted diffusion shadow. All `border-b` section dividers replaced with hairline `--line` rules at 0.08 alpha. `min-h-screen` replaced with `min-h-[100dvh]` to fix iOS Safari viewport jumping. Motion eased onto `cubic-bezier(0.32, 0.72, 0, 1)` springs throughout. Live URL re-deployed to `https://voice-agents-local.prin7r.com` (200, NOWPayments invoice flow re-verified live). Desktop + mobile screenshots captured at the same `prin7r-screenshots` Playwright install used for batch 1. | Wave 2 redesign agent |

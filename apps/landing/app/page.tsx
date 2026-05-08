@@ -3,7 +3,7 @@ import { PricingCta, type PricingPlanId } from "./pricing-cta";
 
 export default function HomePage() {
   return (
-    <main className="min-h-screen text-ink">
+    <main className="min-h-[100dvh] text-ink">
       <Header />
       <Hero />
       <IndustriesWeServe />
@@ -29,31 +29,32 @@ const CONCIERGE_MAILTO =
 
 function Header() {
   return (
-    <header className="border-b border-ink/15">
-      <div className="mx-auto max-w-prose px-6 md:px-10 py-5 flex items-center justify-between gap-6">
+    <header className="sticky top-0 z-40 backdrop-blur-xl bg-canvas/72 section-rule">
+      <div className="mx-auto max-w-prose px-6 md:px-10 py-4 md:py-5 flex items-center justify-between gap-6">
         <Link href="#top" className="flex items-center gap-3" aria-label="Frontline home">
           <Logo />
         </Link>
-        <nav aria-label="Primary" className="hidden md:flex items-center gap-8 text-sm">
-          <Link href="#industries" className="hover:text-copper">
+        <nav aria-label="Primary" className="hidden md:flex items-center gap-8 text-[13.5px] text-ink/70">
+          <Link href="#industries" className="hover:text-ink transition-colors duration-300">
             Industries
           </Link>
-          <Link href="#how" className="hover:text-copper">
+          <Link href="#how" className="hover:text-ink transition-colors duration-300">
             How it works
           </Link>
-          <Link href="#sample" className="hover:text-copper">
-            Listen to a call
+          <Link href="#sample" className="hover:text-ink transition-colors duration-300">
+            Listen
           </Link>
-          <Link href="#pricing" className="hover:text-copper">
+          <Link href="#pricing" className="hover:text-ink transition-colors duration-300">
             Pricing
           </Link>
           <a href={DESK_MAILTO} className="btn btn-copper">
             Talk to us
-            <Arrow />
+            <ArrowIcon />
           </a>
         </nav>
-        <a href={DESK_MAILTO} className="md:hidden btn btn-copper text-[12px] !px-4 !py-2">
+        <a href={DESK_MAILTO} className="md:hidden btn btn-copper !text-[12.5px] !py-2 !pl-4 !pr-2">
           Talk to us
+          <ArrowIcon />
         </a>
       </div>
     </header>
@@ -62,105 +63,130 @@ function Header() {
 
 function Logo() {
   return (
-    <span className="inline-flex items-center gap-2.5" aria-label="Frontline">
-      {/* Old-school receiver mark, copper, on a small ink card. */}
+    <span className="inline-flex items-center gap-3" aria-label="Frontline">
+      {/* Receiver mark — refined: copper-tinted hairline cell, no solid ink block. */}
       <span
         aria-hidden
-        className="inline-flex w-9 h-9 items-center justify-center rounded-[10px] bg-ink"
+        className="relative inline-flex w-9 h-9 items-center justify-center rounded-[12px]"
+        style={{
+          background:
+            "linear-gradient(180deg, rgba(184,68,35,0.12), rgba(184,68,35,0.04))",
+          boxShadow:
+            "0 1px 0 0 rgba(255,255,255,0.9) inset, 0 0 0 1px rgba(21,23,26,0.08), 0 6px 14px -10px rgba(184,68,35,0.4)",
+        }}
       >
-        <svg width="20" height="20" viewBox="0 0 32 32" fill="none">
+        <svg width="18" height="18" viewBox="0 0 32 32" fill="none">
           <path
             d="M9 11.6c0-1.4 1-2.6 2.4-2.7l1.6-.1c.6 0 1.1.4 1.3 1l1.1 3.4c.1.5 0 1.1-.5 1.4l-1.4 1c.6 1.3 1.7 2.4 3 3l1-1.4c.3-.4.9-.6 1.4-.5l3.4 1.1c.6.2 1 .7 1 1.3l-.1 1.6c-.1 1.4-1.3 2.4-2.7 2.4-7.5 0-12.5-5-12.5-12.5z"
-            fill="#C2462A"
+            fill="#B84423"
           />
         </svg>
       </span>
-      <span className="font-display text-[22px] font-semibold tracking-tight">Frontline</span>
+      <span className="font-display text-[22px] font-semibold tracking-tight leading-none">
+        Frontline
+      </span>
     </span>
   );
 }
 
-function Arrow() {
+function ArrowIcon() {
   return (
-    <span aria-hidden className="font-mono text-[14px]">
-      →
+    <span aria-hidden className="btn-icon font-mono">
+      <svg width="11" height="11" viewBox="0 0 12 12" fill="none">
+        <path
+          d="M2 6h8m0 0L6.5 2.5M10 6 6.5 9.5"
+          stroke="currentColor"
+          strokeWidth="1.4"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        />
+      </svg>
     </span>
   );
 }
+
+/* (legacy <Arrow /> removed — replaced by <ArrowIcon /> button-in-button.) */
 
 /* ---------------- Hero ---------------- */
 
 function Hero() {
   return (
-    <section id="top" className="border-b border-ink/15">
-      <div className="mx-auto max-w-prose px-6 md:px-10 pt-14 pb-20 md:pt-20 md:pb-28">
-        <div className="grid lg:grid-cols-12 gap-x-10 gap-y-14 items-start">
+    <section id="top" className="relative">
+      <div className="mx-auto max-w-prose px-6 md:px-10 pt-16 pb-24 md:pt-28 md:pb-36">
+        <div className="grid lg:grid-cols-12 gap-x-12 gap-y-20 items-start">
           <div className="lg:col-span-7">
-            <div className="flex items-center gap-3 reveal">
-              <span
-                className="inline-block w-2.5 h-2.5 rounded-full bg-sage pulse-dot"
-                aria-hidden
-              />
-              <span className="label">A Prin7r service · Open since 2026</span>
-            </div>
+            <span className="eyebrow reveal">
+              <span className="eyebrow-dot pulse-dot" aria-hidden />
+              <span>A Prin7r service · Open since 2026</span>
+            </span>
 
-            <h1 className="reveal mt-5 font-display font-semibold leading-[0.96] tracking-tight text-[44px] sm:text-[56px] md:text-[72px] lg:text-[80px]">
-              We pick up the phone.
+            <h1 className="reveal mt-7 font-display font-semibold leading-[0.92] tracking-[-0.028em] text-[48px] sm:text-[64px] md:text-[80px] lg:text-[96px]">
+              We pick up
               <br />
-              <span className="text-copper">You stay focused</span> on the customer
-              in front of you.
+              the phone.
+              <br />
+              <span className="font-display italic text-copper [font-variation-settings:'opsz'_144,'SOFT'_50]">
+                You stay focused.
+              </span>
             </h1>
 
-            <p className="reveal-2 mt-8 max-w-[620px] text-[18px] md:text-[20px] leading-[1.55] text-ink/85">
+            <p
+              className="reveal-2 mt-10 max-w-[600px] text-[18px] md:text-[19px] leading-[1.65] text-ink/75"
+              style={{ textWrap: "pretty" } as React.CSSProperties}
+            >
               Frontline runs the front-of-house phone for local businesses —
               dentists, plumbers, salons, restaurants, clinics, contractors. A
               calm, real-sounding voice answers every call, books the
               appointment in your calendar, and hands you a clean note at the
-              end of the day. No missed calls. No phone tag. No "press 1 for
-              English."
+              end of the day. No missed calls. No phone tag. No &ldquo;press 1
+              for English.&rdquo;
             </p>
 
-            <div className="reveal-3 mt-10 flex flex-wrap gap-3">
-              <Link href="#sample" className="btn btn-ghost">
-                Listen to a real call
-                <Arrow />
-              </Link>
+            <div className="reveal-3 mt-12 flex flex-wrap gap-3">
               <a href={DESK_MAILTO} className="btn btn-copper">
                 Get a line live this week
-                <Arrow />
+                <ArrowIcon />
               </a>
+              <Link href="#sample" className="btn btn-ghost">
+                Listen to a real call
+                <ArrowIcon />
+              </Link>
             </div>
 
-            <div className="mt-10 grid grid-cols-2 sm:grid-cols-3 gap-x-6 gap-y-5 max-w-2xl">
+            <div className="mt-16 grid grid-cols-2 sm:grid-cols-3 gap-x-8 gap-y-6 max-w-2xl">
               <Stat n="3 days" t="From signup to your first booked call" />
-              <Stat n="0" t="Calls dropped, ever, on the live agents" />
-              <Stat n="$290" t="Starts here. No setup fee. Cancel anytime." />
+              <Stat n="0" t="Calls dropped on live agents" />
+              <Stat n="$290" t="No setup fee. Cancel anytime." />
             </div>
           </div>
 
-          {/* Quote chips column — three local-business owners. */}
-          <aside className="lg:col-span-5 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 gap-4">
+          {/* Quote chips — asymmetric stack, light z-axis offset. */}
+          <aside className="lg:col-span-5 lg:pl-6 lg:pt-8 grid grid-cols-1 gap-5">
             <QuoteChip
               quote="My chair time used to get eaten by the phone. Now I don't even hear it ring — I just see the booking come in."
               who="Marisol Tavárez"
               shop="Tavárez Cuts · Lawrence, MA"
               tone="copper"
+              offset="lg:translate-x-2"
             />
             <QuoteChip
               quote="Customers call about a clogged drain at 11 p.m. on a Tuesday. Used to lose them. Now we book Wednesday morning."
               who="Dale Holcomb"
               shop="Holcomb Plumbing · Knoxville, TN"
               tone="ink"
+              offset="lg:-translate-x-3"
             />
             <QuoteChip
               quote="We tested it on hold-music nights for two weeks. Front desk got their breath back."
               who="Dr. Anya Petrosyan"
               shop="Greenpoint Family Dental · Brooklyn"
-              tone="sky"
+              tone="sage"
+              offset="lg:translate-x-1"
             />
           </aside>
         </div>
       </div>
+      <div className="section-rule" />
     </section>
   );
 }
@@ -168,10 +194,12 @@ function Hero() {
 function Stat({ n, t }: { n: string; t: string }) {
   return (
     <div>
-      <div className="font-display font-semibold text-[28px] md:text-[32px] leading-none">
+      <div className="font-display font-semibold text-[34px] md:text-[40px] leading-none tracking-[-0.025em] tabular">
         {n}
       </div>
-      <div className="text-slate text-[13px] mt-2 leading-snug">{t}</div>
+      <div className="text-slate text-[12.5px] mt-3 leading-snug max-w-[200px]">
+        {t}
+      </div>
     </div>
   );
 }
@@ -181,29 +209,41 @@ function QuoteChip({
   who,
   shop,
   tone,
+  offset,
 }: {
   quote: string;
   who: string;
   shop: string;
-  tone: "copper" | "ink" | "sky";
+  tone: "copper" | "ink" | "sage";
+  offset?: string;
 }) {
-  const accent =
+  const accentRing =
     tone === "copper"
-      ? "border-copper/50"
+      ? "ring-1 ring-copper/25"
       : tone === "ink"
-        ? "border-ink/30"
-        : "border-sky/40";
+        ? "ring-1 ring-ink/10"
+        : "ring-1 ring-sage/30";
+  const dotColor =
+    tone === "copper" ? "bg-copper" : tone === "ink" ? "bg-ink" : "bg-sage";
   return (
     <figure
-      className={`receiver-card p-5 md:p-6 border ${accent}`}
-      style={{ background: "#FFFAF2" }}
+      className={`receiver-card relative p-6 md:p-7 ${accentRing} ${
+        offset ?? ""
+      } transition-transform duration-700 ease-[cubic-bezier(0.32,0.72,0,1)] hover:-translate-y-1`}
     >
-      <blockquote className="font-display text-[17px] md:text-[18px] leading-[1.45] text-ink">
+      <span
+        aria-hidden
+        className={`absolute -top-1.5 left-7 w-2 h-2 rounded-full ${dotColor}`}
+      />
+      <blockquote
+        className="font-display text-[17px] md:text-[18.5px] leading-[1.5] text-ink/90 [font-variation-settings:'opsz'_18]"
+        style={{ textWrap: "pretty" } as React.CSSProperties}
+      >
         &ldquo;{quote}&rdquo;
       </blockquote>
-      <figcaption className="mt-4 text-[12px] text-slate">
+      <figcaption className="mt-5 text-[12px]">
         <span className="font-medium text-ink">{who}</span>
-        <span className="block label mt-1">{shop}</span>
+        <span className="block label mt-1.5">{shop}</span>
       </figcaption>
     </figure>
   );
@@ -257,56 +297,81 @@ function IndustriesWeServe() {
     },
   ];
 
+  // Asymmetric bento — first card spans wide on desktop for visual hierarchy.
+  const tileSpan = (idx: number) => {
+    // 6 items: row 1 = wide-narrow-narrow; row 2 = narrow-wide-narrow → broken grid.
+    if (idx === 0) return "lg:col-span-6";
+    if (idx === 1) return "lg:col-span-3";
+    if (idx === 2) return "lg:col-span-3";
+    if (idx === 3) return "lg:col-span-3";
+    if (idx === 4) return "lg:col-span-6";
+    return "lg:col-span-3";
+  };
+
   return (
-    <section id="industries" className="border-b border-ink/15 section-band">
-      <div className="mx-auto max-w-prose px-6 md:px-10 py-20 md:py-24">
+    <section id="industries" className="section-band">
+      <div className="mx-auto max-w-prose px-6 md:px-10 py-28 md:py-36">
         <SectionHeader
           kicker="01"
           eyebrow="Who we pick up for"
           title="Built for the businesses where the phone is the front door."
         />
-        <p className="mt-5 max-w-2xl text-ink/85 text-[16px] md:text-[17px]">
+        <p
+          className="mt-7 max-w-2xl text-ink/75 text-[16.5px] md:text-[17.5px] leading-[1.65]"
+          style={{ textWrap: "pretty" } as React.CSSProperties}
+        >
           We are not a generic AI receptionist. Frontline is six tuned scripts
-          — one per industry — that we adapt to your shop's hours, prices,
-          quirks, and the real things your customers actually ask for. The
-          examples below are pulled, lightly edited, from real calls we
+          — one per industry — that we adapt to your shop&rsquo;s hours,
+          prices, quirks, and the real things your customers actually ask for.
+          The examples below are pulled, lightly edited, from real calls we
           handled in the last sixty days.
         </p>
 
-        <div className="mt-12 grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
-          {industries.map((i) => (
+        <div className="mt-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-7 md:gap-8 lg:gap-10">
+          {industries.map((i, idx) => (
             <article
               key={i.key}
-              className="bg-cream border border-ink/15 rounded-card p-6 flex flex-col"
+              className={`group relative ${tileSpan(idx)} bezel transition-transform duration-700 ease-[cubic-bezier(0.32,0.72,0,1)] hover:-translate-y-1`}
             >
-              <div className="flex items-start gap-3">
-                <span className="industry-icon" aria-hidden>
-                  {i.icon}
-                </span>
-                <div>
-                  <h3 className="font-display text-[20px] md:text-[22px] font-semibold leading-tight">
-                    {i.label}
-                  </h3>
-                  <p className="mt-1 text-[14px] text-slate">{i.tagline}</p>
+              <div className="bezel-inner p-7 md:p-9 h-full flex flex-col">
+                <div className="flex items-start gap-4">
+                  <span className="industry-icon shrink-0" aria-hidden>
+                    {i.icon}
+                  </span>
+                  <div className="min-w-0">
+                    <h3 className="font-display text-[22px] md:text-[24px] font-semibold leading-[1.1] tracking-[-0.018em]">
+                      {i.label}
+                    </h3>
+                    <p className="mt-2 text-[13.5px] text-slate leading-[1.55]">
+                      {i.tagline}
+                    </p>
+                  </div>
                 </div>
-              </div>
-              <div className="mt-5 thin-rule pt-4 text-[14.5px] leading-[1.5] text-ink/80 italic">
-                <span dangerouslySetInnerHTML={{ __html: i.sample }} />
+                <div
+                  className="mt-7 pt-5 thin-rule font-display italic text-[16px] md:text-[16.5px] leading-[1.55] text-ink/85 [font-variation-settings:'opsz'_18]"
+                  style={{ textWrap: "pretty" } as React.CSSProperties}
+                >
+                  <span dangerouslySetInnerHTML={{ __html: i.sample }} />
+                </div>
               </div>
             </article>
           ))}
         </div>
 
-        <p className="mt-10 text-[14px] text-slate italic max-w-2xl">
-          Don't see your trade? Veterinarians, optometrists, MedSpas, towing,
-          locksmiths, real-estate brokerages — same architecture, we tune the
-          script in a 30-minute call. Email{" "}
-          <a className="copper" href={DESK_MAILTO}>
+        <p className="mt-14 text-[13.5px] text-slate italic max-w-2xl">
+          Don&rsquo;t see your trade? Veterinarians, optometrists, MedSpas,
+          towing, locksmiths, real-estate brokerages &mdash; same architecture,
+          we tune the script in a 30-minute call. Email{" "}
+          <a
+            className="text-copper underline-offset-4 hover:underline"
+            href={DESK_MAILTO}
+          >
             desk@prin7r.com
           </a>
           .
         </p>
       </div>
+      <div className="section-rule" />
     </section>
   );
 }
@@ -333,37 +398,53 @@ function HowItWorks() {
   ];
 
   return (
-    <section id="how" className="border-b border-ink/15">
-      <div className="mx-auto max-w-prose px-6 md:px-10 py-20 md:py-24">
+    <section id="how" className="relative">
+      <div className="mx-auto max-w-prose px-6 md:px-10 py-28 md:py-36">
         <SectionHeader
           kicker="02"
           eyebrow="How it works"
           title="Three steps. The longest one is the first call."
         />
-        <p className="mt-5 max-w-2xl text-ink/85 text-[16px] md:text-[17px]">
+        <p
+          className="mt-7 max-w-2xl text-ink/75 text-[16.5px] md:text-[17.5px] leading-[1.65]"
+          style={{ textWrap: "pretty" } as React.CSSProperties}
+        >
           We deliberately avoid the &ldquo;sign up, watch a video, configure 40
-          fields&rdquo; pattern. You're a small-business owner. Your time is
-          worth more than that. The whole onboarding is one phone call and one
-          listen-through.
+          fields&rdquo; pattern. You&rsquo;re a small-business owner. Your time
+          is worth more than that. The whole onboarding is one phone call and
+          one listen-through.
         </p>
 
-        <div className="mt-12 grid md:grid-cols-3 gap-x-8 gap-y-12">
-          {steps.map((s) => (
-            <div key={s.n}>
-              <div className="font-display text-[44px] md:text-[52px] font-semibold text-copper leading-none">
+        <div className="mt-16 grid md:grid-cols-3 gap-x-12 gap-y-14">
+          {steps.map((s, idx) => (
+            <div
+              key={s.n}
+              className="relative"
+              style={{
+                paddingTop: idx === 1 ? "0" : idx === 2 ? "1.5rem" : "0",
+              }}
+            >
+              <div className="font-display text-[56px] md:text-[68px] font-semibold text-copper leading-none tracking-[-0.04em] tabular [font-variation-settings:'opsz'_144]">
                 {s.n}
               </div>
-              <span aria-hidden className="block w-9 h-[2px] bg-ink mt-3" />
-              <h3 className="font-display text-[22px] md:text-[24px] font-semibold mt-3">
+              <span
+                aria-hidden
+                className="block w-12 h-[1px] bg-ink/30 mt-5"
+              />
+              <h3 className="font-display text-[24px] md:text-[26px] font-semibold mt-5 leading-[1.15] tracking-[-0.02em] [font-variation-settings:'opsz'_72]">
                 {s.t}
               </h3>
-              <p className="text-ink/80 mt-2 text-[15.5px] leading-[1.6]">
+              <p
+                className="text-ink/75 mt-4 text-[15.5px] leading-[1.65] max-w-[36ch]"
+                style={{ textWrap: "pretty" } as React.CSSProperties}
+              >
                 {s.d}
               </p>
             </div>
           ))}
         </div>
       </div>
+      <div className="section-rule" />
     </section>
   );
 }
@@ -371,122 +452,126 @@ function HowItWorks() {
 /* ---------------- Sample call transcript ---------------- */
 
 function SampleCallTranscript() {
+  // Verbatim 9-turn transcript — preserved exactly, only typography changes.
+  const turns: { who: "frontline" | "caller"; line: string }[] = [
+    {
+      who: "frontline",
+      line:
+        "Greenpoint Family Dental, this is the answering desk. How can I help you tonight?",
+    },
+    {
+      who: "caller",
+      line:
+        "Hi — uh, sorry to call late. I think I cracked a filling on a popcorn kernel. It's not bleeding, but it's sharp when I drink something cold.",
+    },
+    {
+      who: "frontline",
+      line:
+        "That sounds uncomfortable. We can absolutely get you in. Can I have your first and last name so I can pull your chart?",
+    },
+    {
+      who: "caller",
+      line: "[REDACTED], yeah, I was in for a cleaning in February.",
+    },
+    {
+      who: "frontline",
+      line:
+        "Got it. I see Dr. Petrosyan does your work. She has a 9:40 tomorrow, or a 12:15 if you'd rather come during lunch. The 9:40 is a little better for cracked-filling work because she keeps her morning blocks for repairs.",
+    },
+    { who: "caller", line: "9:40 is fine. I'll move my call." },
+    {
+      who: "frontline",
+      line:
+        "Booked. I'll send you a confirmation text in a minute. One thing — Dr. Petrosyan asks new repair patients to skip cold drinks the morning of. Coffee is fine, just at room temp. Anything else I can do for you tonight?",
+    },
+    {
+      who: "caller",
+      line: "That's it. Thanks — this was easier than I thought.",
+    },
+    {
+      who: "frontline",
+      line: "You're welcome. Take it easy on the popcorn.",
+    },
+  ];
+
   return (
-    <section id="sample" className="border-b border-ink/15 section-band">
-      <div className="mx-auto max-w-prose px-6 md:px-10 py-20 md:py-24">
-        <div className="grid lg:grid-cols-12 gap-x-12 gap-y-10 items-start">
-          <div className="lg:col-span-5">
+    <section id="sample" className="section-band relative">
+      <div className="mx-auto max-w-prose px-6 md:px-10 py-28 md:py-36">
+        <div className="grid lg:grid-cols-12 gap-x-16 gap-y-14 items-start">
+          <div className="lg:col-span-5 lg:sticky lg:top-28">
             <SectionHeader
               kicker="03"
               eyebrow="Listen to a real call"
               title="A late-evening call to a dental practice."
             />
-            <p className="mt-5 text-[16px] md:text-[17px] text-ink/85 leading-[1.6]">
-              Below is a verbatim transcript from a Tuesday-evening call to
-              one of our dental clients. The patient's name and phone number
-              are redacted. The agent is reading from the practice's intake
-              script and the patient's existing chart, then writing the
-              appointment straight into the office's scheduling software.
+            <p
+              className="mt-7 text-[16.5px] md:text-[17px] text-ink/75 leading-[1.65]"
+              style={{ textWrap: "pretty" } as React.CSSProperties}
+            >
+              A verbatim transcript from a Tuesday-evening call to one of our
+              dental clients. The patient&rsquo;s name and phone number are
+              redacted. The agent is reading from the practice&rsquo;s intake
+              script and the patient&rsquo;s existing chart, then writing the
+              appointment straight into the office&rsquo;s scheduling
+              software.
             </p>
-            <div className="mt-6 transcript-line-meta">
-              Tuesday · 7:48 PM · Greenpoint Family Dental · 2m 14s · Booked.
+            <div className="mt-8 transcript-line-meta">
+              Tuesday · 7:48 PM · Greenpoint Family Dental · 2m 14s · Booked
             </div>
-            <div className="mt-8 flex flex-col gap-3 text-[14px]">
+            <div className="mt-9 flex flex-col gap-3.5 text-[13px]">
               <div className="flex items-center gap-3">
-                <span
-                  aria-hidden
-                  className="w-2 h-2 rounded-full bg-copper"
-                />
-                <span>Frontline (the agent)</span>
+                <span aria-hidden className="w-2 h-2 rounded-full bg-copper" />
+                <span className="text-ink/85">Frontline — the agent</span>
               </div>
               <div className="flex items-center gap-3">
                 <span aria-hidden className="w-2 h-2 rounded-full bg-ink" />
-                <span>Caller (the patient)</span>
+                <span className="text-ink/85">Caller — the patient</span>
               </div>
             </div>
           </div>
 
-          <article
-            aria-label="Sample call transcript"
-            className="lg:col-span-7 receiver-card p-7 md:p-9"
-          >
-            <div className="thin-rule pb-4 mb-5 flex items-center justify-between text-[12px] text-slate">
-              <span className="label">Call · 7:48pm Tuesday</span>
-              <span className="label">2 min 14 sec</span>
-            </div>
+          <div className="lg:col-span-7">
+            <article
+              aria-label="Sample call transcript"
+              className="bezel"
+            >
+              <div className="bezel-inner p-8 md:p-10">
+                <div className="pb-5 mb-6 thin-rule flex items-center justify-between">
+                  <span className="label">Call · 7:48 PM Tuesday</span>
+                  <span className="label tabular">2 min 14 sec</span>
+                </div>
 
-            <ol className="space-y-4 text-[15.5px] leading-[1.55]">
-              <li>
-                <p className="transcript-line-frontline">
-                  <strong>Frontline</strong> &mdash; Greenpoint Family Dental,
-                  this is the answering desk. How can I help you tonight?
-                </p>
-              </li>
-              <li>
-                <p className="transcript-line-customer">
-                  <strong>Caller</strong> &mdash; Hi &mdash; uh, sorry to call
-                  late. I think I cracked a filling on a popcorn kernel. It's
-                  not bleeding, but it's sharp when I drink something cold.
-                </p>
-              </li>
-              <li>
-                <p className="transcript-line-frontline">
-                  <strong>Frontline</strong> &mdash; That sounds uncomfortable.
-                  We can absolutely get you in. Can I have your first and last
-                  name so I can pull your chart?
-                </p>
-              </li>
-              <li>
-                <p className="transcript-line-customer">
-                  <strong>Caller</strong> &mdash; [REDACTED], yeah, I was in
-                  for a cleaning in February.
-                </p>
-              </li>
-              <li>
-                <p className="transcript-line-frontline">
-                  <strong>Frontline</strong> &mdash; Got it. I see Dr.
-                  Petrosyan does your work. She has a 9:40 tomorrow, or a
-                  12:15 if you'd rather come during lunch. The 9:40 is a
-                  little better for cracked-filling work because she keeps her
-                  morning blocks for repairs.
-                </p>
-              </li>
-              <li>
-                <p className="transcript-line-customer">
-                  <strong>Caller</strong> &mdash; 9:40 is fine. I'll move my
-                  call.
-                </p>
-              </li>
-              <li>
-                <p className="transcript-line-frontline">
-                  <strong>Frontline</strong> &mdash; Booked. I'll send you a
-                  confirmation text in a minute. One thing &mdash; Dr.
-                  Petrosyan asks new repair patients to skip cold drinks the
-                  morning of. Coffee is fine, just at room temp. Anything else
-                  I can do for you tonight?
-                </p>
-              </li>
-              <li>
-                <p className="transcript-line-customer">
-                  <strong>Caller</strong> &mdash; That's it. Thanks &mdash;
-                  this was easier than I thought.
-                </p>
-              </li>
-              <li>
-                <p className="transcript-line-frontline">
-                  <strong>Frontline</strong> &mdash; You're welcome. Take it
-                  easy on the popcorn.
-                </p>
-              </li>
-            </ol>
+                <ol className="space-y-5 text-[15.5px] md:text-[16px] leading-[1.62] font-display [font-variation-settings:'opsz'_18]">
+                  {turns.map((t, idx) => (
+                    <li key={idx} className="grid grid-cols-[80px_1fr] gap-4">
+                      <span className="label pt-[3px]">
+                        {t.who === "frontline" ? "Frontline" : "Caller"}
+                      </span>
+                      <p
+                        className={
+                          t.who === "frontline"
+                            ? "transcript-line-frontline"
+                            : "transcript-line-customer"
+                        }
+                        style={{ textWrap: "pretty" } as React.CSSProperties}
+                      >
+                        {t.line}
+                      </p>
+                    </li>
+                  ))}
+                </ol>
 
-            <div className="thin-rule mt-6 pt-4 text-[12.5px] text-slate italic">
-              Booked into Dentrix at 7:50pm · Confirmation SMS sent at 7:51pm ·
-              Dr. Petrosyan saw the day's call summary at 6:00am Wednesday.
-            </div>
-          </article>
+                <div className="thin-rule mt-8 pt-5 text-[12px] text-slate italic leading-[1.6]">
+                  Booked into Dentrix at 7:50 PM · Confirmation SMS sent at
+                  7:51 PM · Dr. Petrosyan saw the day&rsquo;s call summary at
+                  6:00 AM Wednesday.
+                </div>
+              </div>
+            </article>
+          </div>
         </div>
       </div>
+      <div className="section-rule" />
     </section>
   );
 }
@@ -510,25 +595,36 @@ function TrustBand() {
   ];
 
   return (
-    <section className="border-b border-ink/15 bg-ink text-cream">
-      <div className="mx-auto max-w-prose px-6 md:px-10 py-20">
-        <div className="grid md:grid-cols-12 gap-10 items-start">
+    <section className="trust-band">
+      <div className="mx-auto max-w-prose px-6 md:px-10 py-28 md:py-32">
+        <div className="grid md:grid-cols-12 gap-12 md:gap-16 items-start">
           <div className="md:col-span-5">
-            <div className="label" style={{ color: "#C99A2D" }}>
+            <span
+              className="label"
+              style={{ color: "rgba(255,251,235,0.6)" }}
+            >
               Boring, on purpose
-            </div>
-            <h2 className="mt-4 font-display font-semibold text-[36px] md:text-[48px] leading-[1.06] tracking-tight">
+            </span>
+            <h2
+              className="mt-5 font-display font-semibold text-[40px] md:text-[56px] leading-[1.02] tracking-[-0.025em] text-canvas [font-variation-settings:'opsz'_144]"
+              style={{ textWrap: "balance" } as React.CSSProperties}
+            >
               Front-desk relief, measured the way an
               owner&nbsp;measures&nbsp;it.
             </h2>
           </div>
-          <div className="md:col-span-7 grid sm:grid-cols-3 gap-x-8 gap-y-8">
+          <div className="md:col-span-7 grid sm:grid-cols-3 gap-x-10 gap-y-12">
             {items.map((i) => (
               <div key={i.t}>
-                <div className="font-display font-semibold text-[44px] md:text-[52px] leading-none text-cream">
+                <div className="font-display font-semibold text-[48px] md:text-[60px] leading-none text-canvas tracking-[-0.04em] tabular [font-variation-settings:'opsz'_144]">
                   {i.n}
                 </div>
-                <p className="text-cream/80 mt-3 text-[14.5px] leading-[1.55]">
+                <span
+                  aria-hidden
+                  className="block w-9 h-[1px] mt-5"
+                  style={{ background: "rgba(255,251,235,0.25)" }}
+                />
+                <p className="text-canvas/70 mt-5 text-[14px] leading-[1.6]">
                   {i.t}
                 </p>
               </div>
@@ -619,63 +715,74 @@ function Pricing() {
   ];
 
   return (
-    <section id="pricing" className="border-b border-ink/15">
-      <div className="mx-auto max-w-prose px-6 md:px-10 py-20 md:py-24">
+    <section id="pricing" className="relative">
+      <div className="mx-auto max-w-prose px-6 md:px-10 py-28 md:py-36">
         <SectionHeader
           kicker="04"
           eyebrow="Honest pricing"
           title="A monthly base plus per-minute usage. No setup fee. No tricks."
         />
-        <p className="mt-5 max-w-2xl text-ink/85 text-[16px] md:text-[17px]">
+        <p
+          className="mt-7 max-w-2xl text-ink/75 text-[16.5px] md:text-[17.5px] leading-[1.65]"
+          style={{ textWrap: "pretty" } as React.CSSProperties}
+        >
           The first month settles upfront in stablecoin (USDT or USDC) via
-          NOWPayments hosted invoice — usually clears in fifteen minutes. From
-          month two on, we send a single invoice on the first of the month
-          covering the base plan plus any minutes over your bucket. We don't
-          mark up Twilio. We don't mark up Vapi. The sheet is yours to read.
+          NOWPayments hosted invoice &mdash; usually clears in fifteen
+          minutes. From month two on, we send a single invoice on the first of
+          the month covering the base plan plus any minutes over your bucket.
+          We don&rsquo;t mark up Twilio. We don&rsquo;t mark up Vapi. The
+          sheet is yours to read.
         </p>
 
-        <div className="mt-12 grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
+        <div className="mt-16 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {tiers.map((t) => (
             <div
               key={t.name}
               className={
-                "tier-card border bg-cream rounded-card p-7 flex flex-col " +
-                (t.highlight
-                  ? "border-copper ring-1 ring-copper"
-                  : "border-ink/15")
+                "tier-card relative p-8 flex flex-col " +
+                (t.highlight ? "tier-highlight" : "")
               }
             >
-              <div className="flex items-start justify-between">
-                <div className="label">{t.name}</div>
-                {t.badge && (
+              {t.badge && (
+                <span
+                  className="absolute -top-3 left-7 inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-copper text-canvas text-[10px] tracking-[0.16em] uppercase font-semibold font-mono"
+                  aria-label={t.badge}
+                >
                   <span
-                    className="label"
-                    style={{ color: "var(--copper)" }}
-                    aria-label={t.badge}
-                  >
-                    {t.badge}
-                  </span>
-                )}
-              </div>
-              <div className="mt-3 font-display text-[40px] md:text-[44px] font-semibold leading-none">
+                    aria-hidden
+                    className="w-1.5 h-1.5 rounded-full bg-canvas/80"
+                  />
+                  {t.badge}
+                </span>
+              )}
+              <div className="label">{t.name}</div>
+              <div className="mt-4 font-display text-[44px] md:text-[48px] font-semibold leading-[0.95] tracking-[-0.03em] tabular [font-variation-settings:'opsz'_144]">
                 {t.price}
               </div>
-              <div className="text-slate text-[13px] mt-1">{t.cadence}</div>
-              <span aria-hidden className="block w-9 h-[1.5px] bg-copper mt-5" />
-              <div className="font-mono text-[11px] tracking-wide text-slate uppercase mt-4 leading-snug">
+              <div className="text-slate text-[12.5px] mt-2 leading-[1.5]">
+                {t.cadence}
+              </div>
+              <span
+                aria-hidden
+                className="block w-9 h-[1px] bg-copper/60 mt-6"
+              />
+              <div className="font-mono text-[10px] tracking-[0.14em] text-slate uppercase mt-5 leading-[1.55]">
                 {t.perMin}
               </div>
-              <ul className="mt-5 space-y-2.5 text-[14.5px] text-ink/85">
+              <ul className="mt-6 space-y-3 text-[14px] text-ink/85 leading-[1.55]">
                 {t.bullets.map((b) => (
-                  <li key={b} className="grid grid-cols-[14px,1fr] gap-2">
-                    <span aria-hidden className="font-mono text-copper text-[12px] mt-1">
-                      ·
+                  <li key={b} className="grid grid-cols-[16px_1fr] gap-2">
+                    <span
+                      aria-hidden
+                      className="text-copper font-mono text-[14px] mt-[2px] leading-none"
+                    >
+                      —
                     </span>
                     <span>{b}</span>
                   </li>
                 ))}
               </ul>
-              <div className="mt-auto">
+              <div className="mt-8">
                 {t.planId ? (
                   <PricingCta
                     plan={t.planId}
@@ -691,7 +798,7 @@ function Pricing() {
                     className="btn btn-ghost justify-center w-full mt-7"
                   >
                     {t.cta}
-                    <Arrow />
+                    <ArrowIcon />
                   </a>
                 )}
               </div>
@@ -699,14 +806,15 @@ function Pricing() {
           ))}
         </div>
 
-        <p className="mt-10 text-[13.5px] text-slate italic max-w-2xl">
+        <p className="mt-14 text-[13px] text-slate italic max-w-2xl leading-[1.65]">
           A note on per-minute: we round up to the nearest second, not the
           nearest minute. Most calls are under 90 seconds. We will tell you on
           a pre-launch call what we expect your monthly minutes to look like
-          based on your industry and your existing call volume — and we put
-          that estimate in writing.
+          based on your industry and your existing call volume &mdash; and we
+          put that estimate in writing.
         </p>
       </div>
+      <div className="section-rule" />
     </section>
   );
 }
@@ -723,40 +831,57 @@ function WhatWeWontDo() {
   ];
 
   return (
-    <section className="border-b border-ink/15 section-band">
-      <div className="mx-auto max-w-prose px-6 md:px-10 py-20 md:py-24">
-        <div className="grid md:grid-cols-12 gap-x-10 gap-y-8">
-          <div className="md:col-span-5">
+    <section className="section-band relative">
+      <div className="mx-auto max-w-prose px-6 md:px-10 py-28 md:py-36">
+        <div className="grid md:grid-cols-12 gap-x-12 gap-y-10">
+          <div className="md:col-span-5 lg:col-span-4">
             <SectionHeader
               kicker="05"
               eyebrow="Owner's covenant"
               title="What we won't do."
             />
-            <p className="mt-5 text-[15.5px] text-ink/80 max-w-md">
+            <p
+              className="mt-7 text-[15.5px] text-ink/75 max-w-md leading-[1.65]"
+              style={{ textWrap: "pretty" } as React.CSSProperties}
+            >
               Some of these are unusual things to print on a homepage. We
               think small-business owners have been burned enough by phone
               software that they deserve to read the limits in plain English
               before they pick up the contract.
             </p>
           </div>
-          <ul className="md:col-span-7 space-y-5 text-[17px] md:text-[18px] font-display leading-[1.5]">
+          <ul className="md:col-span-7 lg:col-span-8 lg:pl-6 space-y-7 font-display text-[17px] md:text-[19px] leading-[1.45] tracking-[-0.01em] [font-variation-settings:'opsz'_18]">
             {items.map((i) => (
               <li
                 key={i}
-                className="grid grid-cols-[28px,1fr] gap-3 thin-rule pt-5"
+                className="grid grid-cols-[36px_1fr] gap-3 pt-6 thin-rule"
               >
                 <span
                   aria-hidden
-                  className="font-mono text-copper text-[14px] mt-1.5"
+                  className="text-copper mt-2"
+                  style={{ fontFamily: '"JetBrains Mono", monospace' }}
                 >
-                  ×
+                  <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                    <path
+                      d="M3 3l10 10M13 3 3 13"
+                      stroke="currentColor"
+                      strokeWidth="1.4"
+                      strokeLinecap="round"
+                    />
+                  </svg>
                 </span>
-                <span>{i}</span>
+                <span
+                  className="text-ink/90"
+                  style={{ textWrap: "pretty" } as React.CSSProperties}
+                >
+                  {i}
+                </span>
               </li>
             ))}
           </ul>
         </div>
       </div>
+      <div className="section-rule" />
     </section>
   );
 }
@@ -792,26 +917,37 @@ function FaqSection() {
   ];
 
   return (
-    <section className="border-b border-ink/15">
-      <div className="mx-auto max-w-prose px-6 md:px-10 py-20 md:py-24">
+    <section className="relative">
+      <div className="mx-auto max-w-prose px-6 md:px-10 py-28 md:py-36">
         <SectionHeader
           kicker="06"
           eyebrow="The questions every owner asks"
           title="FAQ — written for the owner, not the procurement officer."
         />
-        <div className="mt-12 grid md:grid-cols-2 gap-x-10 gap-y-10">
-          {faqs.map((f) => (
-            <div key={f.q}>
-              <h3 className="font-display text-[20px] md:text-[22px] font-semibold leading-snug">
+        <div className="mt-16 grid md:grid-cols-2 gap-x-12 gap-y-12">
+          {faqs.map((f, idx) => (
+            <div
+              key={f.q}
+              className="pt-7 thin-rule"
+              style={{ paddingTop: idx < 2 ? "0" : undefined, borderTop: idx < 2 ? "0" : undefined }}
+            >
+              <h3
+                className="font-display text-[20px] md:text-[22px] font-semibold leading-[1.25] tracking-[-0.015em] [font-variation-settings:'opsz'_18]"
+                style={{ textWrap: "balance" } as React.CSSProperties}
+              >
                 {f.q}
               </h3>
-              <p className="mt-3 text-[15.5px] leading-[1.6] text-ink/85">
+              <p
+                className="mt-4 text-[15px] leading-[1.65] text-ink/75"
+                style={{ textWrap: "pretty" } as React.CSSProperties}
+              >
                 {f.a}
               </p>
             </div>
           ))}
         </div>
       </div>
+      <div className="section-rule" />
     </section>
   );
 }
@@ -820,35 +956,48 @@ function FaqSection() {
 
 function ClosingCta() {
   return (
-    <section id="contact" className="border-b border-ink/15">
-      <div className="mx-auto max-w-prose px-6 md:px-10 py-20 md:py-28">
+    <section id="contact" className="relative">
+      <div className="mx-auto max-w-prose px-6 md:px-10 py-28 md:py-40">
         <div className="max-w-3xl">
-          <div className="label">Last thing</div>
-          <h2 className="mt-4 font-display font-semibold text-[36px] md:text-[56px] leading-[1.06] tracking-tight">
+          <span className="eyebrow">
+            <span className="eyebrow-dot" aria-hidden style={{ background: "var(--copper)" }} />
+            Last thing
+          </span>
+          <h2
+            className="mt-7 font-display font-semibold text-[40px] md:text-[64px] lg:text-[72px] leading-[0.98] tracking-[-0.028em] [font-variation-settings:'opsz'_144]"
+            style={{ textWrap: "balance" } as React.CSSProperties}
+          >
             Email the desk.{" "}
-            <span className="text-copper italic">We'll have a line live by Friday.</span>
+            <span className="text-copper italic [font-variation-settings:'opsz'_144,'SOFT'_50]">
+              We&rsquo;ll have a line live by Friday.
+            </span>
           </h2>
-          <p className="mt-7 max-w-xl text-ink/85 text-[16.5px] leading-[1.6]">
+          <p
+            className="mt-9 max-w-xl text-ink/75 text-[16.5px] leading-[1.65]"
+            style={{ textWrap: "pretty" } as React.CSSProperties}
+          >
             Tell us your business name, your hours, and the one question you
-            keep getting asked when you can't pick up. That's the whole
-            intake. We'll send you back a working agent by the end of the
-            week.
+            keep getting asked when you can&rsquo;t pick up. That&rsquo;s the
+            whole intake. We&rsquo;ll send you back a working agent by the end
+            of the week.
           </p>
-          <div className="mt-9 flex flex-wrap gap-3">
+          <div className="mt-12 flex flex-wrap gap-3">
             <a href={DESK_MAILTO} className="btn btn-copper">
               Email desk@prin7r.com
-              <Arrow />
+              <ArrowIcon />
             </a>
             <Link href="#sample" className="btn btn-ghost">
               Listen first
-              <Arrow />
+              <ArrowIcon />
             </Link>
           </div>
-          <p className="font-mono text-[11px] tracking-wide text-slate uppercase mt-7">
-            desk@prin7r.com · +1 (929) 295-1207 (rings our desk, never an agent) · Mon–Fri 9–5 ET
+          <p className="label mt-10">
+            desk@prin7r.com &nbsp;·&nbsp; +1 (929) 295-1207 &nbsp;·&nbsp;
+            Mon&ndash;Fri 9&ndash;5 ET
           </p>
         </div>
       </div>
+      <div className="section-rule" />
     </section>
   );
 }
@@ -858,46 +1007,61 @@ function ClosingCta() {
 function Footer() {
   return (
     <footer>
-      <div className="mx-auto max-w-prose px-6 md:px-10 py-12 grid gap-8 md:grid-cols-3 items-end">
+      <div className="mx-auto max-w-prose px-6 md:px-10 py-16 grid gap-12 md:grid-cols-3 items-start">
         <div>
           <Logo />
-          <p className="mt-5 text-slate text-[13.5px] max-w-xs leading-[1.55]">
+          <p className="mt-6 text-slate text-[13px] max-w-xs leading-[1.65]">
             Frontline is operated by Prin7r. Voice infrastructure on Twilio +
             Vapi/Bland under the hood. Built and serviced from Brooklyn,
             Lawrence, and Tbilisi.
           </p>
         </div>
         <div className="md:text-center">
-          <div className="label">Built 2026 · v1</div>
-          <p className="mt-3 font-display italic text-[15px]">
-            &ldquo;Your voice while you're cutting hair.&rdquo;
+          <div className="label">Built 2026 · v2</div>
+          <p
+            className="mt-4 font-display italic text-[15.5px] text-ink/85 [font-variation-settings:'opsz'_18,'SOFT'_40]"
+            style={{ textWrap: "balance" } as React.CSSProperties}
+          >
+            &ldquo;Your voice while you&rsquo;re cutting hair.&rdquo;
           </p>
         </div>
         <div className="md:text-right">
-          <ul className="space-y-2 text-[13.5px]">
+          <ul className="space-y-2.5 text-[13px] text-ink/70">
             <li>
-              <Link href="#industries" className="copper">
+              <Link
+                href="#industries"
+                className="hover:text-copper transition-colors duration-300"
+              >
                 Industries
               </Link>
             </li>
             <li>
-              <Link href="#how" className="copper">
+              <Link
+                href="#how"
+                className="hover:text-copper transition-colors duration-300"
+              >
                 How it works
               </Link>
             </li>
             <li>
-              <Link href="#sample" className="copper">
+              <Link
+                href="#sample"
+                className="hover:text-copper transition-colors duration-300"
+              >
                 Listen to a call
               </Link>
             </li>
             <li>
-              <Link href="#pricing" className="copper">
+              <Link
+                href="#pricing"
+                className="hover:text-copper transition-colors duration-300"
+              >
                 Pricing
               </Link>
             </li>
             <li>
               <a
-                className="copper"
+                className="hover:text-copper transition-colors duration-300"
                 href="https://github.com/prin7r-projects/voice-agents-local"
                 target="_blank"
                 rel="noreferrer"
@@ -906,7 +1070,7 @@ function Footer() {
               </a>
             </li>
           </ul>
-          <p className="font-mono text-[10px] tracking-wide text-slate uppercase mt-5">
+          <p className="label mt-6">
             © 2026 Prin7r · desk@prin7r.com
           </p>
         </div>
@@ -929,14 +1093,19 @@ function SectionHeader({
   return (
     <div>
       <div className="flex items-center gap-3">
-        <span className="label">§ {kicker}</span>
-        <span aria-hidden className="block w-8 h-[1px] bg-slate" />
-        <span className="label">{eyebrow}</span>
+        <span className="eyebrow tabular">
+          <span aria-hidden>§ {kicker}</span>
+          <span aria-hidden className="block w-6 h-[1px] bg-ink/20" />
+          <span>{eyebrow}</span>
+        </span>
       </div>
-      <h2 className="mt-4 font-display font-semibold text-[34px] md:text-[48px] leading-[1.05] tracking-tight max-w-3xl">
+      <h2
+        className="mt-7 font-display font-semibold text-[36px] md:text-[52px] lg:text-[60px] leading-[1.0] tracking-[-0.025em] max-w-3xl [font-variation-settings:'opsz'_144]"
+        style={{ textWrap: "balance" } as React.CSSProperties}
+      >
         {title}
       </h2>
-      <span aria-hidden className="block w-9 h-[2px] bg-copper mt-5" />
+      <span aria-hidden className="block w-12 h-[1px] bg-copper mt-7" />
     </div>
   );
 }
