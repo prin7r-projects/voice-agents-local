@@ -61,11 +61,40 @@ export async function POST(request: Request) {
     stringValue(payload.payment_id) ??
     "pickupcraft_unknown";
 
-  // Stub — when apps/app ships this becomes a DB write + provisioner call.
-  // We intentionally do NOT log the full payload (contains pay_address-style
-  // identifiers). The deploy host's journalctl preserves this audit line.
+  // Forward paid events to apps/app so it can create an intake token.
+  // The app handles DB writes; landing stays stateless.
+  let intakeToken: string | null = null;
+  if (paid) {
+    try {
+      const appBase = process.env.APP_INTERNAL_URL ?? "http://app:3001";
+      const forward = await fetch(`${appBase}/api/internal/nowpayments`, {
+        method: "POST",
+        headers: {
+          "content-type": "application/json",
+          "x-pickupcraft-internal": process.env.PICKUPCRAFT_INTERNAL_SECRET ?? "",
+        },
+        body: JSON.stringify({
+          order_id: orderId,
+          paid,
+          plan: planIdFromOrder(orderId),
+          email: stringValue(payload.customer_email) ?? stringValue(payload.payer_email),
+        }),
+      });
+      if (forward.ok) {
+        const data = await forward.json();
+        intakeToken = data.token ?? null;
+      } else {
+        console.error(
+          `[PICKUPCRAFT_NOWPAYMENTS_IPN] forward_failed status=${forward.status}`
+        );
+      }
+    } catch (e) {
+      console.error("[PICKUPCRAFT_NOWPAYMENTS_IPN] forward_error:", e);
+    }
+  }
+
   console.log(
-    `[PICKUPCRAFT_NOWPAYMENTS_IPN] verified=true order_id=${orderId} status=${status} paid=${paid}`,
+    `[PICKUPCRAFT_NOWPAYMENTS_IPN] verified=true order_id=${orderId} status=${status} paid=${paid} intake=${intakeToken ?? "none"}`,
   );
 
   return NextResponse.json({
@@ -74,10 +103,17 @@ export async function POST(request: Request) {
     paid,
     order_id: orderId,
     status,
+    intake_token: intakeToken,
   });
 }
 
 function stringValue(value: unknown): string | undefined {
   if (typeof value === "string" || typeof value === "number") return String(value);
   return undefined;
+}
+
+function planIdFromOrder(orderId: string): string | undefined {
+  // order_id format: pickupcraft_{plan}_{timestamp}_{random}
+  const parts = orderId.split("_");
+  return parts[1]; // starter | growth | afterhours
 }

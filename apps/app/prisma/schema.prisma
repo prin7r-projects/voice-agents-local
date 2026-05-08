@@ -1,0 +1,180 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Shop {
+  id          String   @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  name        String
+  industry    String   // salon | plumber | dentist | restaurant | clinic | contractor | ...
+  tz          String   @default("America/New_York")
+  hours       Json     // { mon: [9,19], tue: [9,19], ... }
+  ownerEmail  String   @map("owner_email")
+  ownerSms    String?  @map("owner_sms")
+  status      String   @default("onboarding") // onboarding | live | paused | cancelled
+  createdAt   DateTime @default(now()) @map("created_at") @db.Timestamptz(6)
+
+  numbers       Number[]
+  scriptProfile ScriptProfile?
+  calls         Call[]
+  digests       Digest[]
+  integration   Integration?
+
+  @@index([status])
+  @@map("shops")
+}
+
+model Number {
+  id                  String  @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  shopId              String  @map("shop_id") @db.Uuid
+  twilioPhoneNumber   String  @map("twilio_phone_number")
+  publicBusinessNumber String? @map("public_business_number")
+  status              String  @default("provisioning") // provisioning | live | forwarded
+
+  shop Shop @relation(fields: [shopId], references: [id], onDelete: Cascade)
+
+  @@unique([twilioPhoneNumber])
+  @@map("numbers")
+}
+
+model ScriptProfile {
+  id              String  @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  shopId          String  @unique @map("shop_id") @db.Uuid
+  vapiAssistantId String? @map("vapi_assistant_id")
+  pricing         Json    @default("{}")
+  urgencyTriggers Json    @map("urgency_triggers") @default("[]")
+  fallbackText    String? @map("fallback_text")
+
+  shop Shop @relation(fields: [shopId], references: [id], onDelete: Cascade)
+
+  @@map("script_profiles")
+}
+
+model Call {
+  id            String    @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  shopId        String    @map("shop_id") @db.Uuid
+  callerNumber  String    @map("caller_number")
+  startedAt     DateTime  @default(now()) @map("started_at") @db.Timestamptz(6)
+  durationS     Int?      @map("duration_s")
+  intent        String?   // book | info | emergency | complaint | robocall | other
+  outcome       String?   // booked | escalated | info_only | hung_up
+  recordingUrl  String?   @map("recording_url")
+  transcript    String?
+
+  shop    Shop     @relation(fields: [shopId], references: [id], onDelete: Cascade)
+  booking Booking?
+
+  @@index([startedAt])
+  @@map("calls")
+}
+
+model Booking {
+  id            String    @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  callId        String    @unique @map("call_id") @db.Uuid
+  bookingId     String?   @map("booking_id") // external id in Booksy/Vagaro/etc
+  scheduledAt   DateTime? @map("scheduled_at") @db.Timestamptz(6)
+  amountCents   Int?      @map("amount_cents")
+
+  call Call @relation(fields: [callId], references: [id], onDelete: Cascade)
+
+  @@map("bookings")
+}
+
+model Digest {
+  id          String    @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  shopId      String    @map("shop_id") @db.Uuid
+  day         DateTime  @db.Date
+  callsTotal  Int       @map("calls_total")
+  booked      Int       @default(0)
+  escalated   Int       @default(0)
+  sentAt      DateTime? @map("sent_at") @db.Timestamptz(6)
+
+  shop Shop @relation(fields: [shopId], references: [id], onDelete: Cascade)
+
+  @@map("digests")
+}
+
+model Integration {
+  id              String  @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  shopId          String  @unique @map("shop_id") @db.Uuid
+  bookingProvider String  @map("booking_provider") // booksy | vagaro | square | dentrix | mindbody | toast | resy
+  oauthState      Json?   @map("oauth_state")
+  status          String  @default("disconnected") // connected | expired | disconnected
+
+  shop Shop @relation(fields: [shopId], references: [id], onDelete: Cascade)
+
+  @@map("integrations")
+}
+
+model Account {
+  id                String  @id @default(cuid())
+  userId            String  @map("user_id")
+  type              String
+  provider          String
+  providerAccountId String  @map("provider_account_id")
+  refresh_token     String? @db.Text
+  access_token      String? @db.Text
+  expires_at        Int?
+  token_type        String?
+  scope             String?
+  id_token          String? @db.Text
+  session_state     String?
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([provider, providerAccountId])
+  @@map("accounts")
+}
+
+model Session {
+  id           String   @id @default(cuid())
+  sessionToken String   @unique @map("session_token")
+  userId       String   @map("user_id")
+  expires      DateTime
+  user         User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@map("sessions")
+}
+
+model User {
+  id            String    @id @default(cuid())
+  name          String?
+  email         String    @unique
+  emailVerified DateTime? @map("email_verified")
+  image         String?
+  role          String    @default("owner") // owner | operator | admin
+  shopId        String?   @map("shop_id") @db.Uuid
+  createdAt     DateTime  @default(now()) @map("created_at")
+
+  accounts Account[]
+  sessions Session[]
+
+  @@map("users")
+}
+
+model VerificationToken {
+  identifier String
+  token      String   @unique
+  expires    DateTime
+
+  @@unique([identifier, token])
+  @@map("verification_tokens")
+}
+
+model IntakeToken {
+  id        String    @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  email     String
+  plan      String    @default("starter")
+  used      Boolean   @default(false)
+  expiresAt DateTime  @map("expires_at") @db.Timestamptz(6)
+  createdAt DateTime  @default(now()) @map("created_at") @db.Timestamptz(6)
+
+  @@map("intake_tokens")
+}

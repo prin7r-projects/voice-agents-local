@@ -16,3 +16,36 @@ services:
       - "traefik.http.routers.voice-agents-local.entrypoints=websecure"
       - "traefik.http.routers.voice-agents-local.tls.certresolver=letsencrypt"
       - "traefik.http.services.voice-agents-local.loadbalancer.server.port=3000"
+
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile.app
+    image: voice-agents-local-app:latest
+    container_name: voice-agents-local-app
+    restart: unless-stopped
+    env_file:
+      - .env
+    expose:
+      - "3001"
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.voice-agents-local-app.rule=Host(`voice-agents-local.prin7r.com`) && PathPrefix(`/app`,`/api`,`/auth`,`/dashboard`,`/settings`,`/billing`,`/admin`,`/intake`)"
+      - "traefik.http.routers.voice-agents-local-app.priority=100"
+      - "traefik.http.routers.voice-agents-local-app.entrypoints=websecure"
+      - "traefik.http.routers.voice-agents-local-app.tls.certresolver=letsencrypt"
+      - "traefik.http.services.voice-agents-local-app.loadbalancer.server.port=3001"
+
+  db:
+    image: postgres:16-alpine
+    container_name: voice-agents-local-db
+    restart: unless-stopped
+    env_file:
+      - .env
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    expose:
+      - "5432"
+
+volumes:
+  pgdata:
