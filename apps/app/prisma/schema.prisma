@@ -104,7 +104,7 @@ model Digest {
 model Integration {
   id              String  @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
   shopId          String  @unique @map("shop_id") @db.Uuid
-  bookingProvider String  @map("booking_provider") // booksy | vagaro | square | dentrix | mindbody | toast | resy
+  bookingProvider  String? @map("booking_provider") // booksy | vagaro | square | dentrix | mindbody | toast | resy
   oauthState      Json?   @map("oauth_state")
   status          String  @default("disconnected") // connected | expired | disconnected
 

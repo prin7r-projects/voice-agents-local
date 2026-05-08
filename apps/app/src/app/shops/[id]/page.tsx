@@ -27,7 +27,7 @@ export default async function ShopPage({
     return (
       <main className="min-h-screen p-8">
         <p>Shop not found.</p>
-        <Link href="/queue" className="text-coral hover:underline">
+        <Link href="/queue" className="text-black hover:underline">
           ← Back to queue
         </Link>
       </main>
@@ -37,7 +37,7 @@ export default async function ShopPage({
   return (
     <main className="min-h-screen p-8 max-w-4xl mx-auto">
       <div className="mb-6">
-        <Link href="/queue" className="text-sm text-coral hover:underline">
+        <Link href="/queue" className="text-sm text-black hover:underline">
           ← Back to queue
         </Link>
         <h1 className="text-3xl font-bold mt-2">{shop.name}</h1>

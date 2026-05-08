@@ -38,14 +38,14 @@ export async function POST(
         status: "onboarding",
         scriptProfile: {
           create: {
-            pricing: parsed.pricing as any,
-            urgencyTriggers: parsed.urgencyTriggers as any,
-            fallbackText: parsed.fallbackText,
+            pricing: (parsed.pricing ?? []) as any,
+            urgencyTriggers: (parsed.urgencyTriggers ?? []) as any,
+            fallbackText: parsed.fallbackText ?? null,
           },
         },
         integration: {
           create: {
-            bookingProvider: parsed.bookingProvider,
+            bookingProvider: parsed.bookingProvider ?? null,
             status: "disconnected",
           },
         },
@@ -59,7 +59,7 @@ export async function POST(
 
     return NextResponse.json({
       shopId: shop.id,
-      message: "Configuration saved. Our team will contact you within 4 business hours.",
+      message: "Configuration saved. Our team will set up your voice agent within 72 hours.",
     });
   } catch (e: any) {
     if (e.name === "ZodError") {

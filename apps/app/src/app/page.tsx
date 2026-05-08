@@ -10,41 +10,41 @@ export default async function HomePage() {
 
   return (
     <main className="max-w-prose mx-auto px-6 md:px-10 py-20">
-      <header className="mb-12 border-b border-line pb-6">
-        <h1 className="font-display text-4xl md:text-5xl font-semibold tracking-tight">
+      <header className="mb-12 border-b border-gray-200 pb-6">
+        <h1 className="text-4xl md:text-5xl font-semibold tracking-tight text-gray-900">
           PickupCraft
         </h1>
-        <p className="mt-2 text-slate">Welcome, {session.user.email}</p>
+        <p className="mt-2 text-gray-500">Welcome, {session.user.email}</p>
       </header>
 
       <nav className="grid gap-4 sm:grid-cols-2">
         <Link
           href="/dashboard"
-          className="rounded-[10px] border border-line bg-white p-6 hover:border-copper transition-colors"
+          className="rounded-lg border border-gray-200 bg-white p-6 hover:border-black transition-colors"
         >
-          <h2 className="font-display text-xl font-semibold">Dashboard</h2>
-          <p className="mt-1 text-sm text-slate">Calls, transcripts, and urgent alerts.</p>
+          <h2 className="text-xl font-semibold text-gray-900">Dashboard</h2>
+          <p className="mt-1 text-sm text-gray-500">Calls, transcripts, and urgent alerts.</p>
         </Link>
         <Link
           href="/settings"
-          className="rounded-[10px] border border-line bg-white p-6 hover:border-copper transition-colors"
+          className="rounded-lg border border-gray-200 bg-white p-6 hover:border-black transition-colors"
         >
-          <h2 className="font-display text-xl font-semibold">Voice Settings</h2>
-          <p className="mt-1 text-sm text-slate">Hours, pricing, and script tuning.</p>
+          <h2 className="text-xl font-semibold text-gray-900">Voice Settings</h2>
+          <p className="mt-1 text-sm text-gray-500">Hours, pricing, and script tuning.</p>
         </Link>
         <Link
           href="/billing"
-          className="rounded-[10px] border border-line bg-white p-6 hover:border-copper transition-colors"
+          className="rounded-lg border border-gray-200 bg-white p-6 hover:border-black transition-colors"
         >
-          <h2 className="font-display text-xl font-semibold">Billing</h2>
-          <p className="mt-1 text-sm text-slate">Subscription and usage.</p>
+          <h2 className="text-xl font-semibold text-gray-900">Billing</h2>
+          <p className="mt-1 text-sm text-gray-500">Subscription and usage.</p>
         </Link>
         <Link
           href="/admin/queue"
-          className="rounded-[10px] border border-line bg-white p-6 hover:border-copper transition-colors"
+          className="rounded-lg border border-gray-200 bg-white p-6 hover:border-black transition-colors"
         >
-          <h2 className="font-display text-xl font-semibold">Onboarding Queue</h2>
-          <p className="mt-1 text-sm text-slate">Operator view — new shop intake.</p>
+          <h2 className="text-xl font-semibold text-gray-900">Onboarding Queue</h2>
+          <p className="mt-1 text-sm text-gray-500">Operator view — new shop intake.</p>
         </Link>
       </nav>
     </main>

@@ -2,31 +2,24 @@
 @tailwind components;
 @tailwind utilities;
 
-@import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700;9..144,800&family=Plus+Jakarta+Sans:wght@400;500;700;800&family=JetBrains+Mono:wght@400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
 
 @layer base {
   :root {
-    --canvas: #FBFAF7;
-    --canvas-2: #F4F2EC;
-    --ink: #15171A;
-    --ink-2: #2A2D31;
-    --copper: #B84423;
-    --copper-2: #92341B;
-    --slate: #5A6066;
-    --sage: #5F7758;
-    --line: rgba(21,23,26,0.08);
-    --line-2: rgba(21,23,26,0.14);
+    --canvas: #FFFFFF;
+    --canvas-2: #F9FAFB;
+    --ink: #111827;
+    --ink-2: #1F2937;
+    --slate: #6B7280;
+    --line: rgba(17,24,39,0.08);
+    --line-2: rgba(17,24,39,0.14);
   }
 
   body {
     background-color: var(--canvas);
     color: var(--ink);
-    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-family: 'Inter', system-ui, sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-  }
-
-  h1, h2, h3, h4, h5, h6 {
-    font-family: 'Fraunces', serif;
   }
 }

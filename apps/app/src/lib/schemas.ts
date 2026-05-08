@@ -15,17 +15,10 @@ export const intakeSchema = z.object({
   hours: z.record(z.tuple([z.number(), z.number()])),
   ownerEmail: z.string().email(),
   ownerSms: z.string().optional(),
-  bookingProvider: z.enum([
-    "booksy",
-    "vagaro",
-    "square",
-    "dentrix",
-    "mindbody",
-    "toast",
-    "resy",
-    "other",
-  ]),
-  pricing: z.array(z.object({ service: z.string(), priceCents: z.number() })),
-  urgencyTriggers: z.array(z.string()),
-  fallbackText: z.string().min(1),
+  bookingProvider: z
+    .enum(["booksy", "vagaro", "square", "dentrix", "mindbody", "toast", "resy", "other"])
+    .optional(),
+  pricing: z.array(z.object({ service: z.string(), priceCents: z.number() })).optional(),
+  urgencyTriggers: z.array(z.string()).optional(),
+  fallbackText: z.string().optional(),
 });
