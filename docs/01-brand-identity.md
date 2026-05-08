@@ -1,6 +1,6 @@
 # 01 — Brand Identity
 
-> Brand: **Rollcall**
+> Brand: **PickupCraft**
 > Slug: `voice-agents-local`
 > Tagline: "We pick up. You stay focused."
 > One-liner: Done-for-you voice agents for local businesses — dentists, plumbers, salons, restaurants, clinics, contractors. We answer the phone so the owner doesn't have to.
@@ -16,7 +16,7 @@
 
 ## 2. Positioning statement
 
-> For **local-business owners** (dentist offices, plumbing shops, salons, restaurants, clinics, contractors) **who lose customers and revenue every time the front desk can't pick up**, **Rollcall** is **a done-for-you voice agent on a real phone number** **that books, triages, and answers in your shop's voice — without sounding like a robot or burying you in dashboards** **unlike** generic AI receptionists, voicemail-to-text apps, and overseas answering services **because we wire your industry's exact intake, your scheduling software, and your hours into the script — and we hand you a working agent in 72 hours, not a 12-page configuration manual.**
+> For **local-business owners** (dentist offices, plumbing shops, salons, restaurants, clinics, contractors) **who lose customers and revenue every time the front desk can't pick up**, **PickupCraft** is **a done-for-you voice agent on a real phone number** **that books, triages, and answers in your shop's voice — without sounding like a robot or burying you in dashboards** **unlike** generic AI receptionists, voicemail-to-text apps, and overseas answering services **because we wire your industry's exact intake, your scheduling software, and your hours into the script — and we hand you a working agent in 72 hours, not a 12-page configuration manual.**
 
 ## 3. Audience persona
 
@@ -52,7 +52,7 @@
 
 ### Sample sentence
 
-> "Rollcall is a voice that picks up your shop's phone. It books appointments, answers the questions you keep getting asked, and texts you anything urgent. You read the day's notes at 6 p.m. That is the whole product."
+> "PickupCraft is a voice that picks up your shop's phone. It books appointments, answers the questions you keep getting asked, and texts you anything urgent. You read the day's notes at 6 p.m. That is the whole product."
 
 ## 5. Visual system
 
@@ -85,7 +85,7 @@ Reasoning: Fraunces is a warm, optical-size serif that reads as "shop sign" / "b
 
 ### Logo concept
 
-A small **ink-coloured rounded square** holding a **copper old-school telephone receiver** glyph, with the word **"Rollcall"** set in Fraunces 22px next to it.
+A small **ink-coloured rounded square** holding a **copper old-school telephone receiver** glyph, with the word **"PickupCraft"** set in Fraunces 22px next to it.
 
 The receiver is intentionally a 1960s rotary handset, not a smartphone — that's the visual anchor for "we pick up." The mark works at 24px (favicon) and at 64px (footer signature). SVG is inline in `app/page.tsx::Logo` and as `app/icon.svg` for the favicon. There is no raster logo file.
 
@@ -116,4 +116,4 @@ The receiver is intentionally a 1960s rotary handset, not a smartphone — that'
 
 ## 7. Brand sign-off
 
-Rollcall is the warm voice across the counter. The brand exists to convince a tired shop owner that handing the phone to us will not feel like handing it to a corporation, and the visual identity has to earn that — every type choice, every hairline, every color is doing that one job.
+PickupCraft is the warm voice across the counter. The brand exists to convince a tired shop owner that handing the phone to us will not feel like handing it to a corporation, and the visual identity has to earn that — every type choice, every hairline, every color is doing that one job.

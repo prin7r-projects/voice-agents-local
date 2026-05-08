@@ -1,6 +1,6 @@
 # 02 — Architecture
 
-> Rollcall operates a per-shop voice agent on a real phone number, books appointments into the shop's existing scheduling software, and reports the day's calls back to the owner. This document covers the system topology, data flows, and deploy plan.
+> PickupCraft operates a per-shop voice agent on a real phone number, books appointments into the shop's existing scheduling software, and reports the day's calls back to the owner. This document covers the system topology, data flows, and deploy plan.
 
 ## 1. System diagram (mermaid)
 
@@ -123,7 +123,7 @@ DNS: wildcard `*.prin7r.com → 161.97.99.120` already exists. No per-subdomain 
 - **Static landing**: stateless. Container restart is the recovery mechanism.
 - **Webhooks**: idempotent — verifying the IPN signature and logging the event is enough; the human provisioner is the system of record in Wave 2.
 - **Voice runtime**: fronted by Vapi/Bland, both have their own SLA. We monitor by alarm on Vapi's status page and a synthetic call once a day.
-- **Logs**: `journalctl -u docker.service` on storage-contabo captures container stdout. We grep `[ROLLCALL_NOWPAYMENTS_IPN]` for verified-payment events.
+- **Logs**: `journalctl -u docker.service` on storage-contabo captures container stdout. We grep `[PICKUPCRAFT_NOWPAYMENTS_IPN]` for verified-payment events.
 
 ## 4. Threat model
 

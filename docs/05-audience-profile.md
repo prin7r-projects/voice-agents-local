@@ -1,6 +1,6 @@
 # 05 — Audience Profile
 
-> Two personas, one ICP, one anti-persona table. Rollcall's audience is small (≤25 employees), local, owner-led, and on the owner's mobile after 6pm.
+> Two personas, one ICP, one anti-persona table. PickupCraft's audience is small (≤25 employees), local, owner-led, and on the owner's mobile after 6pm.
 
 ## ICP — the ideal customer profile
 
@@ -37,7 +37,7 @@ The ICP is **not** big-box dental DSOs, multi-location restaurant groups, MSOs, 
 | **Where she lives online** | Instagram, WhatsApp, neighbourhood Facebook group, Booksy app, Google reviews |
 | **Where she discovers things** | Other salon owners (Facebook salon-owners group), Booksy partner directory, Instagram saves, salon-supplier reps in person |
 | **Decision style** | Fast. If she likes the demo voice, she signs up the same day. |
-| **Budget signal** | Spent $580 last month on Booksy + Square + Yelp ads + Instagram boosts. $290/mo for Rollcall is in range. |
+| **Budget signal** | Spent $580 last month on Booksy + Square + Yelp ads + Instagram boosts. $290/mo for PickupCraft is in range. |
 
 ### What Marisol actually says (verbatim from sales calls)
 
@@ -63,7 +63,7 @@ The ICP is **not** big-box dental DSOs, multi-location restaurant groups, MSOs, 
 | **Where he lives online** | Facebook, NextDoor, his trade-association forum, voicemail. Rarely on Instagram. |
 | **Where he discovers things** | The trade-association group thread, his Local Services Ads rep, a podcast he listens to in the truck. |
 | **Decision style** | Wants a 30-day money-back. Will call us before he signs. |
-| **Budget signal** | Pays $480/mo for an existing answering service. Rollcall at $290 with after-hours add-on at $140 is comparable, but he gets the booked-call benefit. |
+| **Budget signal** | Pays $480/mo for an existing answering service. PickupCraft at $290 with after-hours add-on at $140 is comparable, but he gets the booked-call benefit. |
 
 ### What Dale actually says
 
@@ -80,7 +80,7 @@ The ICP is **not** big-box dental DSOs, multi-location restaurant groups, MSOs, 
 | **Big-box dental DSO chain** (50+ locations) | They need an enterprise sales process, custom DPAs, EHR-grade audit logs. Refer to Concierge tier or to a different vendor. |
 | **Multi-state franchisor** (Great Clips / Sport Clips / etc.) | Channel sale through corporate; not our v1 motion. |
 | **Outbound-sales SDR teams** | We don't do outbound. We refer them elsewhere (Goodcall, Dialpad). |
-| **Lead-gen / call-center buyers** | Rollcall is for the owner, not for a procurement officer optimizing for cost-per-call. We're product-quality competitive, not bottom-price competitive. |
+| **Lead-gen / call-center buyers** | PickupCraft is for the owner, not for a procurement officer optimizing for cost-per-call. We're product-quality competitive, not bottom-price competitive. |
 | **Crypto-only no-KYC operators** | Even though we accept stablecoin, we keep clean books with named buyers and invoiced services. |
 | **"AI for AI's sake" technical buyers** | If you want raw API access to Vapi/Bland, you don't need us — go direct. |
 

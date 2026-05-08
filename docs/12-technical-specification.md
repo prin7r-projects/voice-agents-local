@@ -1,6 +1,6 @@
 # 12 · Technical specification
 
-> Rollcall = per-shop Vapi voice agent + Twilio number + booking integrations + end-of-day digest.
+> PickupCraft = per-shop Vapi voice agent + Twilio number + booking integrations + end-of-day digest.
 > Wave 2 = landing + checkout. Wave 3 = onboarding flow + per-shop runtime + dashboard.
 
 ## 1. Architecture overview
@@ -169,8 +169,8 @@ Indexes: `shops.status`, `(numbers.twilio_phone_number)` UNIQUE, `calls.started_
 ## 8. Observability
 
 - Pino JSON logs → Loki.
-- Metrics: `rollcall.call.duration_s`, `rollcall.call.intent_distribution`, `rollcall.booking.success_rate`,
-  `rollcall.urgent.sms_lag_s`.
+- Metrics: `pickupcraft.call.duration_s`, `pickupcraft.call.intent_distribution`, `pickupcraft.booking.success_rate`,
+  `pickupcraft.urgent.sms_lag_s`.
 - Alerts: provider OAuth expired; Vapi 4xx > 5/hr; urgent SMS lag > 60s.
 
 ## 9. Performance budgets

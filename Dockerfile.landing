@@ -1,4 +1,4 @@
-# Rollcall landing — multistage Next.js 15 standalone build.
+# PickupCraft landing — multistage Next.js 15 standalone build.
 FROM node:22-alpine AS deps
 WORKDIR /app
 RUN corepack enable && corepack prepare pnpm@9.15.4 --activate

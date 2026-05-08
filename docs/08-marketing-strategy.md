@@ -4,7 +4,7 @@
 
 ## Positioning
 
-> Rollcall is **the answering desk small businesses actually wanted** — a real, calm voice that picks up the phone, books the appointment, and texts you anything urgent. Built per industry. Priced per minute. Cancellable any month.
+> PickupCraft is **the answering desk small businesses actually wanted** — a real, calm voice that picks up the phone, books the appointment, and texts you anything urgent. Built per industry. Priced per minute. Cancellable any month.
 
 Three sharp comparison axes:
 
@@ -20,7 +20,7 @@ Three sharp comparison axes:
 **"We pick up. You stay focused."**
 
 ### One-paragraph sell
-Rollcall runs the front-of-house phone for local businesses — dentists, plumbers, salons, restaurants, clinics, contractors. A calm, real-sounding voice answers every call, books the appointment in your calendar, and hands you a clean note at the end of the day. No missed calls. No phone tag. No "press 1 for English."
+PickupCraft runs the front-of-house phone for local businesses — dentists, plumbers, salons, restaurants, clinics, contractors. A calm, real-sounding voice answers every call, books the appointment in your calendar, and hands you a clean note at the end of the day. No missed calls. No phone tag. No "press 1 for English."
 
 ### Five-second hook
 "Your voice while you're cutting hair."
@@ -41,7 +41,7 @@ A weekly redacted-audio clip of an actual call we handled. 30 seconds. Posted on
 - **Production rule**: every clip has explicit owner-and-customer permission. We bias toward dental and salon clips for visual diversity (hold music, on-the-fly booking, escalation).
 
 ### Pillar 2 — "How a {industry} should answer the phone"
-A long-form blog post or 5-minute video per industry. Practical owner advice — what to say in the first three seconds, what to ask before booking, when to escalate. We give it away. Rollcall gets mentioned at the end as the "if-you-don't-have-time-for-this" play.
+A long-form blog post or 5-minute video per industry. Practical owner advice — what to say in the first three seconds, what to ask before booking, when to escalate. We give it away. PickupCraft gets mentioned at the end as the "if-you-don't-have-time-for-this" play.
 
 - **Cadence**: one industry per month. Six industries in six months covers the full ICP.
 - **Why it works**: ranks for long-tail SEO ("how should a dentist answer the phone"), arms our owner-fans with content they can re-post.
@@ -53,7 +53,7 @@ A short-form pillar that re-makes our anti-feature manifesto into bite-size post
 - **Cadence**: one per fortnight. Twitter/X first, then Instagram carousel.
 
 ### Pillar 4 — "Behind the desk"
-Quarterly look at how we run Rollcall. Voice-engineer interviews. The script template. The integrations roadmap. Honest pricing math (how 22¢ per minute breaks down).
+Quarterly look at how we run PickupCraft. Voice-engineer interviews. The script template. The integrations roadmap. Honest pricing math (how 22¢ per minute breaks down).
 
 - **Why it works**: builds the long-tail trust gradient. Owners share these with their owner friends.
 - **Cadence**: one piece per quarter.
@@ -74,7 +74,7 @@ Quarterly look at how we run Rollcall. Voice-engineer interviews. The script tem
 
 ## Owner-to-owner amplification
 
-Every customer gets a copy-paste pack to share Rollcall in their owner Facebook groups. Three pre-written posts (skeptical, enthusiastic, story-style); they pick one. We never ghost-write — they edit, they post.
+Every customer gets a copy-paste pack to share PickupCraft in their owner Facebook groups. Three pre-written posts (skeptical, enthusiastic, story-style); they pick one. We never ghost-write — they edit, they post.
 
 This is the marketing function the brand pyramid is engineered for: the owner has to *want* to recommend us. That's why the visual identity is small-business main-street, not enterprise SaaS — when she pastes our link into a Facebook group, the brand has to look like something she'd recommend without embarrassment.
 

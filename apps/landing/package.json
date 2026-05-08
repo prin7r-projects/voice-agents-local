@@ -1,8 +1,8 @@
 {
-  "name": "rollcall-landing",
+  "name": "pickupcraft-landing",
   "version": "0.1.0",
   "private": true,
-  "description": "Voice-agents-local marketing landing — Next.js 15 + Tailwind, brand: Rollcall.",
+  "description": "Voice-agents-local marketing landing — Next.js 15 + Tailwind, brand: PickupCraft.",
   "scripts": {
     "dev": "next dev",
     "build": "next build",

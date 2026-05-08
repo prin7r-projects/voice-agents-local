@@ -20,10 +20,10 @@ export default function HomePage() {
 }
 
 const DESK_MAILTO =
-  "mailto:desk@prin7r.com?subject=Rollcall%20-%20get%20a%20line%20live%20for%20my%20shop&body=Business%20name%3A%0A%0AIndustry%20(dentist%2C%20plumber%2C%20salon%2C%20restaurant%2C%20clinic%2C%20contractor)%3A%0A%0ABusiness%20phone%20number%3A%0A%0AHours%20you%20want%20covered%3A%0A%0AOne-line%20description%20of%20your%20typical%20customer%20question%3A%0A";
+  "mailto:desk@prin7r.com?subject=PickupCraft%20-%20get%20a%20line%20live%20for%20my%20shop&body=Business%20name%3A%0A%0AIndustry%20(dentist%2C%20plumber%2C%20salon%2C%20restaurant%2C%20clinic%2C%20contractor)%3A%0A%0ABusiness%20phone%20number%3A%0A%0AHours%20you%20want%20covered%3A%0A%0AOne-line%20description%20of%20your%20typical%20customer%20question%3A%0A";
 
 const CONCIERGE_MAILTO =
-  "mailto:desk@prin7r.com?subject=Rollcall%20Concierge%20-%20multi-location%20setup&body=Number%20of%20locations%3A%0A%0AAverage%20daily%20call%20volume%20across%20locations%3A%0A%0AScheduling%20software%20you%20use%20today%20(Square%2C%20Booksy%2C%20Vagaro%2C%20Dentrix%2C%20Mindbody%2C%20etc.)%3A%0A%0AWho%20handles%20the%20phone%20today%3A%0A";
+  "mailto:desk@prin7r.com?subject=PickupCraft%20Concierge%20-%20multi-location%20setup&body=Number%20of%20locations%3A%0A%0AAverage%20daily%20call%20volume%20across%20locations%3A%0A%0AScheduling%20software%20you%20use%20today%20(Square%2C%20Booksy%2C%20Vagaro%2C%20Dentrix%2C%20Mindbody%2C%20etc.)%3A%0A%0AWho%20handles%20the%20phone%20today%3A%0A";
 
 /* ---------------- Header ---------------- */
 
@@ -31,7 +31,7 @@ function Header() {
   return (
     <header className="sticky top-0 z-40 backdrop-blur-xl bg-canvas/72 section-rule">
       <div className="mx-auto max-w-prose px-6 md:px-10 py-4 md:py-5 flex items-center justify-between gap-6">
-        <Link href="#top" className="flex items-center gap-3" aria-label="Rollcall home">
+        <Link href="#top" className="flex items-center gap-3" aria-label="PickupCraft home">
           <Logo />
         </Link>
         <nav aria-label="Primary" className="hidden md:flex items-center gap-8 text-[13.5px] text-ink/70">
@@ -63,7 +63,7 @@ function Header() {
 
 function Logo() {
   return (
-    <span className="inline-flex items-center gap-3" aria-label="Rollcall">
+    <span className="inline-flex items-center gap-3" aria-label="PickupCraft">
       {/* Receiver mark — refined: copper-tinted hairline cell, no solid ink block. */}
       <span
         aria-hidden
@@ -83,7 +83,7 @@ function Logo() {
         </svg>
       </span>
       <span className="font-display text-[22px] font-semibold tracking-tight leading-none">
-        Rollcall
+        PickupCraft
       </span>
     </span>
   );
@@ -134,7 +134,7 @@ function Hero() {
               className="reveal-2 mt-10 max-w-[600px] text-[18px] md:text-[19px] leading-[1.65] text-ink/75"
               style={{ textWrap: "pretty" } as React.CSSProperties}
             >
-              Rollcall runs the front-of-house phone for local businesses —
+              PickupCraft runs the front-of-house phone for local businesses —
               dentists, plumbers, salons, restaurants, clinics, contractors. A
               calm, real-sounding voice answers every call, books the
               appointment in your calendar, and hands you a clean note at the
@@ -320,7 +320,7 @@ function IndustriesWeServe() {
           className="mt-7 max-w-2xl text-ink/75 text-[16.5px] md:text-[17.5px] leading-[1.65]"
           style={{ textWrap: "pretty" } as React.CSSProperties}
         >
-          We are not a generic AI receptionist. Rollcall is six tuned scripts
+          We are not a generic AI receptionist. PickupCraft is six tuned scripts
           — one per industry — that we adapt to your shop&rsquo;s hours,
           prices, quirks, and the real things your customers actually ask for.
           The examples below are pulled, lightly edited, from real calls we
@@ -521,7 +521,7 @@ function SampleCallTranscript() {
             <div className="mt-9 flex flex-col gap-3.5 text-[13px]">
               <div className="flex items-center gap-3">
                 <span aria-hidden className="w-2 h-2 rounded-full bg-copper" />
-                <span className="text-ink/85">Rollcall — the agent</span>
+                <span className="text-ink/85">PickupCraft — the agent</span>
               </div>
               <div className="flex items-center gap-3">
                 <span aria-hidden className="w-2 h-2 rounded-full bg-ink" />
@@ -545,7 +545,7 @@ function SampleCallTranscript() {
                   {turns.map((t, idx) => (
                     <li key={idx} className="grid grid-cols-[80px_1fr] gap-4">
                       <span className="label pt-[3px]">
-                        {t.who === "agent" ? "Rollcall" : "Caller"}
+                        {t.who === "agent" ? "PickupCraft" : "Caller"}
                       </span>
                       <p
                         className={
@@ -1011,7 +1011,7 @@ function Footer() {
         <div>
           <Logo />
           <p className="mt-6 text-slate text-[13px] max-w-xs leading-[1.65]">
-            Rollcall is operated by Prin7r. Voice infrastructure on Twilio +
+            PickupCraft is operated by Prin7r. Voice infrastructure on Twilio +
             Vapi/Bland under the hood. Built and serviced from Brooklyn,
             Lawrence, and Tbilisi.
           </p>

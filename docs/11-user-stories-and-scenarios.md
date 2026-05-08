@@ -1,6 +1,6 @@
 # 11 · User stories and scenarios
 
-> Rollcall is a done-for-you voice agent on a real phone number for local businesses. We answer the
+> PickupCraft is a done-for-you voice agent on a real phone number for local businesses. We answer the
 > phone so the owner doesn't have to.
 
 ## 1. Personas summary
@@ -9,14 +9,14 @@
   Wants Sundays off. — see `05-audience-profile.md` §Marisol.
 - **Dale the Plumber.** 51, 3-truck plumbing shop in Knoxville TN. Wants after-hours emergency
   capture. — see `05-audience-profile.md` §Dale.
-- **Rollcall onboarding operator (internal).** Configures the per-shop script + integrations
+- **PickupCraft onboarding operator (internal).** Configures the per-shop script + integrations
   during the 72h setup window.
 
 ## 2. Primary user stories (12)
 
-1. **As Marisol**, I want to give Rollcall my industry + my hours + my booking software, so that
+1. **As Marisol**, I want to give PickupCraft my industry + my hours + my booking software, so that
    the agent picks up calls in my voice without a 12-page configuration manual.
-2. **As Marisol**, I want Rollcall live on my line in 72 hours, so that I can stop dropping calls
+2. **As Marisol**, I want PickupCraft live on my line in 72 hours, so that I can stop dropping calls
    this week.
 3. **As Marisol**, I want bookings written directly into Booksy, so that I don't have a second
    calendar to reconcile.
@@ -41,7 +41,7 @@
 
 ## 3. Main scenarios (happy paths)
 
-### Scenario A — Marisol onboards Rollcall in 72h
+### Scenario A — Marisol onboards PickupCraft in 72h
 
 1. **Trigger.** Marisol Googles "answering service for hair salon" Wednesday afternoon.
 2. **Steps.**
@@ -55,7 +55,7 @@
       number forwarding + Booksy integration.
    6. 36h later, sandbox number ready; Marisol dials, books a test appointment in Booksy, listens
       to the recording.
-   7. 60h later, Marisol greenlights; the existing salon line forwards to Rollcall on busy/no-answer.
+   7. 60h later, Marisol greenlights; the existing salon line forwards to PickupCraft on busy/no-answer.
 3. **Success criteria.** Live within 72h; first real booking by hour 96.
 4. **Frontend.** Landing, intake, sandbox dialer page.
 5. **Backend.** NOWPayments → onboarding workflow → Vapi config → Twilio number → Booksy OAuth.
@@ -133,7 +133,7 @@ Recordings stored 30 days in B2; per-customer dashboard shows the day's calls wi
 
 ## 5. Anti-scenarios
 
-1. **No outbound cold calling.** Rollcall is inbound-only; we will not dial-on-behalf for
+1. **No outbound cold calling.** PickupCraft is inbound-only; we will not dial-on-behalf for
    marketing.
 2. **No "robotic" voice.** We ship each shop on a real-sounding voice; if the customer doesn't
    like the voice option, we offer 2 alternatives.

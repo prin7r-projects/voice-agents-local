@@ -1,4 +1,4 @@
-# 10 — Pitch Deck (Rollcall)
+# 10 — Pitch Deck (PickupCraft)
 
 > 10 slides. Plain English. Designed to be read by an owner first, an investor second.
 
@@ -6,7 +6,7 @@
 
 ## Slide 1 — Title
 
-# Rollcall
+# PickupCraft
 ### Your voice while you're cutting hair.
 
 A done-for-you voice agent for local businesses — dentists, plumbers, salons, restaurants, clinics, contractors.
@@ -29,7 +29,7 @@ The phone is the front door of every local business. It rings while the owner is
 
 ## Slide 3 — The product
 
-Rollcall is a real-sounding voice agent on a real phone number, hand-tuned per industry.
+PickupCraft is a real-sounding voice agent on a real phone number, hand-tuned per industry.
 
 - Picks up. Books the appointment in your existing software. Texts you anything urgent. Sends a clean digest at end of day.
 - Six tuned scripts: dental, plumbing, salon, restaurant, clinic, contractor.
@@ -132,7 +132,7 @@ Wave 3 (months 4-12): scale to 200 customers; ship `apps/app/` open-saas dashboa
 
 ## Slide 10 — Ask
 
-Rollcall is operated by Prin7r as one of 20 productized services. We'd invite three things from a partner:
+PickupCraft is operated by Prin7r as one of 20 productized services. We'd invite three things from a partner:
 
 1. **Owner introductions** — if you know a salon, plumber, dentist, restaurant, clinic, or contractor in a US Sun Belt or secondary-city market, we'd like to send them the sample call.
 2. **Agency partnership conversations** — we're recruiting 3-5 Local Services Ads agencies to sell-with us.

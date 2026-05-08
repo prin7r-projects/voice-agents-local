@@ -1,4 +1,4 @@
-// [ROLLCALL_SCREENSHOT_CAPTURE]
+// [PICKUPCRAFT_SCREENSHOT_CAPTURE]
 // Capture desktop + mobile fullPage screenshots of the production landing.
 // Used to regenerate the assets in /docs/screenshots/ after any landing-affecting change.
 //
@@ -26,17 +26,17 @@ async function capture(viewport, name) {
     deviceScaleFactor: 2,
   });
   const page = await ctx.newPage();
-  console.log(`[ROLLCALL_SCREENSHOT_CAPTURE] ${name} ${viewport.width}x${viewport.height} -> ${url}`);
+  console.log(`[PICKUPCRAFT_SCREENSHOT_CAPTURE] ${name} ${viewport.width}x${viewport.height} -> ${url}`);
   await page.goto(url, { waitUntil: "networkidle", timeout: 60_000 });
   // Give web fonts a beat to settle even after networkidle.
   await page.waitForTimeout(800);
   const out = join(outDir, `${name}.png`);
   await page.screenshot({ path: out, fullPage: true });
-  console.log(`[ROLLCALL_SCREENSHOT_CAPTURE] wrote ${out}`);
+  console.log(`[PICKUPCRAFT_SCREENSHOT_CAPTURE] wrote ${out}`);
   await browser.close();
 }
 
 await mkdir(outDir, { recursive: true });
 await capture({ width: 1440, height: 900 }, "landing-desktop");
 await capture({ width: 390, height: 844 }, "landing-mobile");
-console.log("[ROLLCALL_SCREENSHOT_CAPTURE] done.");
+console.log("[PICKUPCRAFT_SCREENSHOT_CAPTURE] done.");

@@ -1,6 +1,6 @@
 # 03 — User Journeys
 
-> Three journeys: the owner discovering Rollcall, the owner getting their first booked call, and the owner three months in. Plus per-industry script sketches the voice engineer reads from on day one.
+> Three journeys: the owner discovering PickupCraft, the owner getting their first booked call, and the owner three months in. Plus per-industry script sketches the voice engineer reads from on day one.
 
 ## Journey 1 — Discovery → First trial
 
@@ -9,7 +9,7 @@
 | Step | Channel | What she sees / does | What we want |
 |---|---|---|---|
 | 1 | Saturday at 1pm: a third client today says "I tried calling all morning." | She closes the chair. | — |
-| 2 | Tuesday slow hour: Googles "answering service for hair salon." | Sees Rollcall (paid SEM on "answering service" + industry term). | Click the ad. |
+| 2 | Tuesday slow hour: Googles "answering service for hair salon." | Sees PickupCraft (paid SEM on "answering service" + industry term). | Click the ad. |
 | 3 | Lands on `voice-agents-local.prin7r.com` mid-page (industry grid). | Sees "Hair, nails, lashes" tile + sample line. Recognises the situation. | Scroll up. |
 | 4 | Reads the hero. | "We pick up. You stay focused on the customer in front of you." | Stay. |
 | 5 | Listens to the dental sample call. | Sees the "Booked into Dentrix at 7:50pm" footer. Realises this is real, not a demo loop. | Click "Pricing." |
@@ -17,7 +17,7 @@
 | 7 | OR (more likely on first visit): clicks "Talk to us." | Lands in a prefilled email to `desk@prin7r.com` with the intake fields. | Send the email. |
 | 8 | Within 4 business hours: a real person replies asking for a 30-minute call. | Books a slot via the reply. | — |
 | 9 | 30-minute call, voice engineer captures her hours, prices, software (Booksy), the three questions she keeps getting. | She gets a Loom-style recording of the agent saying her opening line. | Confirm. |
-| 10 | Day 3: she logs into Booksy and forwards her existing line during her busy days only. | First Rollcall-handled call comes in Saturday at 11:14am. Booked. SMS lands on her phone. | First-value moment. |
+| 10 | Day 3: she logs into Booksy and forwards her existing line during her busy days only. | First PickupCraft-handled call comes in Saturday at 11:14am. Booked. SMS lands on her phone. | First-value moment. |
 
 **Time to first value**: 3 business days from email to first booked call.
 **Friction point we own**: getting her to listen to the live agent before any caller does. We always do this, even if it slows launch by a day.
@@ -30,7 +30,7 @@
 |---|---|---|
 | 1 | Tuesday at 6:01pm: digest email lands. | Open it. |
 | 2 | Subject: "Tavárez Cuts — 11 calls today, 4 booked, 1 pricing question, 1 escalated." | Read the day at a glance. |
-| 3 | The escalated call is a lash-extension new client who wanted to book with Marisol specifically; Rollcall sent the SMS at 2:47pm. Marisol called the customer back at 3:10. | She didn't miss the booking despite being in a balayage. |
+| 3 | The escalated call is a lash-extension new client who wanted to book with Marisol specifically; PickupCraft sent the SMS at 2:47pm. Marisol called the customer back at 3:10. | She didn't miss the booking despite being in a balayage. |
 | 4 | She replies to the digest with "can we make sure first-time lash gets routed to Sofia, not me?" | Voice engineer updates the script in 24 hours. |
 | 5 | Day 30: NOWPayments invoice clears for month two ($290 base + $4.62 over-bucket on 21 minutes over 250). | One line in the email — minutes used, dollars billed, link to view. |
 

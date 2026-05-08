@@ -4,16 +4,16 @@
 > Phases 1–6 ship the per-shop runtime + onboarding flow.
 >
 > **Repo:** https://github.com/prin7r-projects/voice-agents-local
-> **Live:** https://voice-agents-local.prin7r.com (landing live as Rollcall)
+> **Live:** https://voice-agents-local.prin7r.com (landing live as PickupCraft)
 > **Deploy:** storage-contabo `/opt/prin7r-deploys/voice-agents-local`
 > **Secrets:** NOWPAYMENTS_API_KEY, NOWPAYMENTS_IPN_SECRET, POSTMARK_SERVER_TOKEN,
 > TWILIO_ACCOUNT_SID, TWILIO_AUTH_TOKEN, VAPI_API_KEY, ANTHROPIC_API_KEY, ZAI_API_KEY,
 > per-provider OAuth secrets, DATABASE_URL.
-> **Tone:** Rollcall. Warm. Plainspoken. Steady. See `01-brand-identity.md` §Voice.
+> **Tone:** PickupCraft. Warm. Plainspoken. Steady. See `01-brand-identity.md` §Voice.
 
 ## Phase 0 — Wave 2 landing + checkout (DONE)
 
-- ✅ Rollcall brand; canvas #FBFAF7; NOWPayments invoice; live unpaid invoice tested in prod.
+- ✅ PickupCraft brand; canvas #FBFAF7; NOWPayments invoice; live unpaid invoice tested in prod.
   Screenshots in `/docs/screenshots/`.
 
 ## Phase 1 — Wasp scaffold + intake form + onboarding queue

@@ -1,6 +1,6 @@
 "use client";
 /**
- * [ROLLCALL_PRICING_CTA] Client component that turns each self-serve pricing
+ * [PICKUPCRAFT_PRICING_CTA] Client component that turns each self-serve pricing
  * tier into a NOWPayments hosted-invoice CTA.
  *
  * On click → `POST /api/checkout/nowpayments` → redirect to the returned
@@ -21,7 +21,7 @@ type Props = {
 };
 
 const FALLBACK_MAILTO =
-  "mailto:desk@prin7r.com?subject=Rollcall%20-%20get%20a%20line%20live%20for%20my%20shop&body=Business%20name%3A%0A%0AIndustry%20(dentist%2C%20plumber%2C%20salon%2C%20restaurant%2C%20clinic%2C%20contractor)%3A%0A%0ABusiness%20phone%20number%3A%0A%0AHours%20you%20want%20covered%3A%0A%0AOne-line%20description%20of%20your%20typical%20customer%20question%3A%0A";
+  "mailto:desk@prin7r.com?subject=PickupCraft%20-%20get%20a%20line%20live%20for%20my%20shop&body=Business%20name%3A%0A%0AIndustry%20(dentist%2C%20plumber%2C%20salon%2C%20restaurant%2C%20clinic%2C%20contractor)%3A%0A%0ABusiness%20phone%20number%3A%0A%0AHours%20you%20want%20covered%3A%0A%0AOne-line%20description%20of%20your%20typical%20customer%20question%3A%0A";
 
 export function PricingCta({ plan, label, className }: Props) {
   const [busy, setBusy] = useState(false);
